@@ -122,7 +122,7 @@ NSString *ID = @"cell";
 - 在storyboard中设置UITableView的Dynamic Prototypes Cell
 
 - 设置cell的重用标识
-![](images/Snip20150602_153.png)
+![](/assets/Snip20150602_153.png)
 
 - 在代码中利用重用标识获取cell
 

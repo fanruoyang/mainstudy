@@ -140,7 +140,7 @@ cell.textLabel.text = [NSString stringWithFormat:@"cell - %zd", indexPath.row];
 return cell;
 ```
 ### 错误将UIViewController当做UITableViewController来用
-![](images/Snip20150602_110.png)
+![](/assets/Snip20150602_110.png)
 
 ### UITableView的常见设置
 ```objc

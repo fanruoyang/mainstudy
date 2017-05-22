@@ -2,7 +2,7 @@
 
 * [Introducition](README.md)
 * [视频学习笔记总结](chapter1.md)
-* [第一个](di-yi-ge.md)
+* [UI 基础 控件](di-yi-ge.md)
   * [九宫格 封装 懒加载 plist](di-yi-ge/di-yi-ge-0.md)
   * 第二个
 * [第二个](di-er-ge.md)

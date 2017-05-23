@@ -14,4 +14,59 @@
 for (int i = 0; i < 3; i++) {
 [self pickerView:nil didSelectRow:0 inComponent:i];
 }
+//返回pickerView有多少列
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+//返回多少行
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+     return 1;
+}
+//返回对应的自定义筛选 view 或者对应的 Nsstring
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    XMGFlagView *flagView = [[NSBundle mainBundle] loadNibNamed:@"XMGFlagView" owner:nil options:nil][0];
+    
+    // 取出对应的模型
+    XMGFlag *flag = self.flags[row];
+    flagView.flag = flag;
+    
+    return flagView;
+}
+/**
+ *  返回第component第row行的文字 ****同上
+ *
+ */
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSString *food = self.foods[component][row];
+    
+    return food;
+}
+
+/**
+ *  选中第component列第row行的时候调用
+ *
+ */
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    switch (component) {
+        case 0:
+            _fruitLabel.text = self.foods[component][row];
+            break;
+        case 1:
+            _mainLabel.text = self.foods[component][row];
+            break;
+        case 2:
+            _drinkLabel.text = self.foods[component][row];
+            break;
+    }
+    
+}
+//返回的row 高度
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
+{
+    return 90;
+}
 ```

@@ -1,6 +1,6 @@
 #### transform
-```objc
-    // transform:形变属性，能完成的功能：平移、缩放、旋转
+```
+     // transform:形变属性，能完成的功能：平移、缩放、旋转
     [UIView animateWithDuration:2.0 animations:^{
         // 缩放
        self.tempView.transform = CGAffineTransformMakeScale(0.5, 0.5);
@@ -97,9 +97,28 @@
 ```
 - 3.Bundle identifier APP 唯一标实 用在很多地方
 
-#### .PCH 的文件的操作
+### .PCH 的文件的操作
 
-- 1. 首先需要添加完成后 将文件路径填写进里面   最好是相对路径，否则换了电脑路径不对容易报错
-    ##### $(SRCROOT) 
-- 2. pch 里面放的一些东西
-    ######啊爽
+-  首先需要添加完成后 将文件路径填写进里面   最好是相对路径，否则换了电脑路径不对容易报错
+    ##### $(SRCROOT)    
+-  pch 里面放的一些东西
+     - 1.pch存放一些公用的宏,比如判断是否是iOS7系统，4英寸屏幕
+     - 2.pch导入一些公用的头文件，比如分类，工具类，项目配置头文件
+     - 3.管理日志的输出 
+-  比较重要的一个写法
+```
+ /*
+ ... 表示宏定义中的可变参数，表示这个宏，可以传无数个参数
+ __VA_ARGS__ 表示函数中的可变参数，表示这个函数可以传无数个参数
+ */
+#ifdef DEBUG // 调试阶段
+#define HMLog(...)  NSLog(__VA_ARGS__)  ---可以进行自己注释 在不想要的时候直接注销掉
+#else // 发布阶段
+#define HMLog(...)
+#endif
+```
+上面是直接进行根据APP是否为测试版本是否打印 NSLog
+
+- 如果进行混编的时候与C 和C++ 会报错，需要添加头文件告诉程序指编译OC 文件
+      #ifdef __OBJC __
+      #endif

@@ -101,6 +101,35 @@ for (int i = 0; i < 3; i++) {
 ```
 
 #### 时间选择器
-```
+- 随便点击，点击出一般的选择控制器
 
 ```
+/*
+ UIDatePickerModeTime,           12小时制 小时 分
+ UIDatePickerModeDate,           年 月 日
+ UIDatePickerModeDateAndTime,    月 日 小时 分
+ UIDatePickerModeCountDownTimer, 24小时制 小时 分
+ };
+ */
+
+- (void)setUpBirthdayKeyboard
+{
+    UIDatePicker *birthdayKeyboard = [[UIDatePicker alloc] init];
+    // 设置地区
+    birthdayKeyboard.locale = [NSLocale localeWithLocaleIdentifier:@"zh"];
+    birthdayKeyboard.datePickerMode = UIDatePickerModeDate;
+    [birthdayKeyboard addTarget:self action:@selector(dateChange:) forControlEvents:UIControlEventValueChanged];
+    _birthdayField.inputView = birthdayKeyboard;
+}
+
+- (void)dateChange:(UIDatePicker *)datePicker
+{
+    // 创建日期格式字符串
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSString *timeStr = [fmt stringFromDate:datePicker.date];
+    _birthdayField.text = timeStr;
+}
+
+```
+- 系统默认的时间选择器

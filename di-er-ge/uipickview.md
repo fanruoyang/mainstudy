@@ -133,3 +133,31 @@ for (int i = 0; i < 3; i++) {
 
 ```
 - 系统默认的时间选择器
+
+```
+-(void)riqiTap
+{ 
+ UIDatePicker *datePicker = [[UIDatePicker alloc] init]; datePicker.datePickerMode = UIDatePickerModeDateAndTime
+;
+   
+ UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\n\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+   [alert.view addSubview:datePicker];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+        //实例化一个NSDateFormatter对象
+        [dateFormat setDateFormat:@"yyyy-MM-dd-HH-mm"];//设定时间格式
+     //   [dateFormat1 setDateFormat:@"HH:mm"];//设定时间格式
+        NSString *dateString = [dateFormat stringFromDate:datePicker.date];
+        //求出当天的时间字符串   
+ _textlabel3.text= dateString;
+        _textlabel3.textColor = [UIColor blackColor];
+        NSLog(@"%@",dateString);
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+       }];
+   [alert addAction:ok];
+   [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion
+:^{ }];
+}
+```

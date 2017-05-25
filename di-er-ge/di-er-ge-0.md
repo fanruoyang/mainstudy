@@ -87,3 +87,10 @@
     NSLog(@"监听到%@对象的%@属性发生了改变， %@", object, keyPath, change);
 }
 ```
+# Info.plist 文件操作
+
+- 1.Bundle name  对应的名字一般指的是  12 个字符 软件软件软件 --APP 的显示名称
+- 2.Bundle versions string, short  版本号 ---要一直增加
+```
+```
+- 3.Bundle identifier APP 唯一标实 用在很多地方

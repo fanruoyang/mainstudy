@@ -70,3 +70,37 @@ for (int i = 0; i < 3; i++) {
     return 90;
 }
 ```
+#### BUG
+- 在进行联动的时候会出现键值角标问题报错。需要每次进行刷新
+
+```
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+    if (component == 0) { // 选中省会，刷新城市
+        
+        // 记录省会角标
+        _selectProvinceIndex = [pickerView selectedRowInComponent:0];
+        
+        // 刷新城市列表
+        [pickerView reloadComponent:1];
+        
+        // 默认选中第一个城市
+        [pickerView selectRow:0 inComponent:1 animated:NO];
+        
+    }
+        // 获取选中的省会
+        HMProvince *province = self.provinces[_selectProvinceIndex];
+
+        // 获取选中的城市名称
+        NSInteger cIndex = [pickerView selectedRowInComponent:1];
+        NSString *cityName = province.cities[cIndex];
+        _cityField.text = [NSString stringWithFormat:@"%@  %@",province.name,cityName];
+    
+}
+```
+
+#### 时间选择器
+```
+
+```

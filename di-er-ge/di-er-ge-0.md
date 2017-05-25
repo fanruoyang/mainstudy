@@ -92,5 +92,11 @@
 - 1.Bundle name  对应的名字一般指的是  12 个字符 软件软件软件 --APP 的显示名称
 - 2.Bundle versions string, short  版本号 ---要一直增加
 ```
+    NSDictionary *infoDict =  [NSBundle mainBundle].infoDictionary;   
+    NSString *version = infoDict[@"CFBundleVersion"]; 
 ```
 - 3.Bundle identifier APP 唯一标实 用在很多地方
+
+#### .PCH 的文件的操作
+
+- 1. 首先需要添加完成后 将文件路径填写进里面

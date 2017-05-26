@@ -11,6 +11,6 @@
   * [1.6 代理+通知](di-yi-ge/16-dai-7406+-tong-zhi.md)
 * [2. UI 进阶 类控件](di-er-ge.md)
   * [2.1 属性代码](di-er-ge/di-er-ge-0.md)
-  * [2.3 UIApplication](di-er-ge/uiapplication.md)
   * [2.2 UIPickView](di-er-ge/uipickview.md)
+  * [2.3 UIApplication](di-er-ge/uiapplication.md)
 

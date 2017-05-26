@@ -13,5 +13,5 @@
   * [2.1 属性代码](di-er-ge/di-er-ge-0.md)
   * [2.2 UIPickView](di-er-ge/uipickview.md)
   * [2.3 UIApplication](di-er-ge/uiapplication.md)
-  * 2.4 UIWindow
+  * [2.4 UIWindow](di-er-ge/24-uiwindow.md)
 

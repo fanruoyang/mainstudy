@@ -33,6 +33,8 @@
     
 - 出栈 返回跟控制器和上一个控制器，或者是对应的控制器
 
+     控制器push到下一个控制器
+
 ```
    //1.对应的控制器
     for (UIViewController * controller in  self.navigationController.viewControllers) {//遍历
@@ -51,6 +53,6 @@
    //3.返回根控制器
    // 注意：只能返回到栈里面的控制器
     [self.navigationController popToViewController:self.navigationController.childViewControllers[0] animated:YES];
-    // [self.navigationController popToRootViewControllerAnimated:YES];
+   //[self.navigationController popToRootViewControllerAnimated:YES];
 ```
-- 
+####4. UINavigationController 导航栏内容

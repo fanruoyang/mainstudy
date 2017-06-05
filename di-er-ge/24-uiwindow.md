@@ -81,4 +81,21 @@
      */
    //非ARC的时候有即将销毁和完全销毁俩个状态  
 ```
+####6. UITextField 的使用注意点
+- 1.监听文本改变
 
+     // 给文本框添加监听器,及时监听文本框内容的改变
+     [_accountField addTarget:self action:@selector(textChange) forControlEvents:UIControlEventEditingChanged];
+
+- 2.代理方法不能立即监听，输入第二个的时候会显示第一个字符
+
+    // 当用户输入的时候就会调用，判断下用户是否允许输入
+    // 及时的判断文本框有没有内容
+    // 注意这个方法不能及时获取文本框的内容  
+    -(BOOL)textField:(UITextField *)textField   shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    
+    NSLog(@"%@",_accountField.text);
+    
+    return YES;
+}

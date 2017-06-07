@@ -86,7 +86,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     // super:NSObject
-#warning 什么时候需要调用initWithCoder
+#warning 什么时候需要调用initWithCoder ———xib 文件添加view
     if (self = [super init]) {
         
         // 注意：一定要给成员变量赋值
@@ -103,8 +103,7 @@
 - 存取
 ```
     Person *p = [[Person alloc] init];
-    p.age = 18;
-    
+    p.age = 18;    
     // 获取cache
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
     
@@ -117,15 +116,14 @@
 - 读取
 
 ```   
-// 获取cache
+    // 获取cache
     NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
     
     // 获取文件的全路径
     NSString *filePath = [cachePath stringByAppendingPathComponent:@"person.data"];
     
     // 解档
-    Person *p = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    
+    Person *p = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];  
     NSLog(@"%d",p.age);
     
 ```

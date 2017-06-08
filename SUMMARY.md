@@ -15,5 +15,5 @@
   * [2.3 UIApplication](di-er-ge/uiapplication.md)
   * [2.4 UIWindow等基础控件](di-er-ge/24-uiwindow.md)
   * [2.5 数据存储](di-er-ge/25-shu-ju-cun-chu.md)
-  * [2.6 IOS中的事件](di-er-ge/26-ioszhong-de-shi-jian.md)
+  * [2.6 IOS中的点击事件](di-er-ge/26-ioszhong-de-shi-jian.md)
 

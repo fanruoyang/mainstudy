@@ -130,3 +130,40 @@
  // 图片平铺
    [image drawAsPatternInRect:rect];
 ```
+#### 5.定时器 雪花下落
+```
+- (void)drawRect:(CGRect)rect {
+    // 如果以后想绘制东西到view上面，必须在drawRect方法里面，不管有没有手动获取到上下文
+    // 修改雪花y值
+    UIImage *image =  [UIImage imageNamed:@"雪花"];
+    [image drawAtPoint:CGPointMake(50, _snowY)];
+    _snowY += 10;
+    //这个是重新调用循环
+    if (_snowY > rect.size.height) {
+        _snowY = 0;
+    }
+
+}
+
+// 如果在绘图的时候需要用到定时器，通常
+
+// NSTimer很少用于绘图，因为调度优先级比较低，并不会准时调用
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    // 创建定时器 这个会卡顿
+//    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timeChange) userInfo:nil repeats:YES];
+    CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(timeChange)];
+    // 添加主运行循环
+    [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+// CADisplayLink:每次屏幕刷新的时候就会调用，屏幕一般一秒刷新60次
+
+- (void)timeChange
+{
+    // 注意：这个方法并不会马上调用drawRect,其实这个方法只是给当前控件添加刷新的标记，等下一次屏幕刷新的时候才会调用drawRect
+    [self setNeedsDisplay];
+}
+
+```

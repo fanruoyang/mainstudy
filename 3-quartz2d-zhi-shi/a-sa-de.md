@@ -85,3 +85,48 @@
 }
 ```
 
+#### 5.绘制阴影空心文字Label 
+![](/assets/WX20170609-184834.png)
+
+```
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    NSMutableDictionary *textDict = [NSMutableDictionary dictionary];
+    
+    // 设置文字颜色
+    textDict[NSForegroundColorAttributeName] = [UIColor redColor];
+    
+    // 设置文字字体
+    textDict[NSFontAttributeName] = [UIFont systemFontOfSize:30];
+    
+    // 设置文字的空心颜色和宽度
+    textDict[NSStrokeWidthAttributeName] = @3;
+    
+    textDict[NSStrokeColorAttributeName] = [UIColor yellowColor];
+    
+    // 创建阴影对象
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor greenColor];
+    shadow.shadowOffset = CGSizeMake(4, 4);
+    shadow.shadowBlurRadius = 3;
+    textDict[NSShadowAttributeName] = shadow;
+    // 创建富文本字符串
+    NSAttributedString *strArr = [[NSAttributedString alloc] initWithString:@"asdlsajkldl" attributes:textDict];
+    _labelView.attributedText =  strArr;
+    
+    // 只能计算普通文本框
+//    [_labelView sizeToFit];
+}
+```
+#### 5.绘制图片 Image 都在UIView中绘制
+```
+   // 超出裁剪区域的内容全部裁剪掉
+    // 注意：裁剪必须放在绘制之前
+    UIRectClip(CGRectMake(0, 0, 50, 50));
+    // 默认绘制的内容尺寸跟图片尺寸一样大,跟控件大小不合适，下面那个方法是适应
+   //[image drawAtPoint:CGPointZero];
+  [image drawInRect:rect];
+ // 图片平铺
+   [image drawAsPatternInRect:rect];
+```

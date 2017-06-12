@@ -18,4 +18,5 @@
   * [2.6 IOS中的点击事件](di-er-ge/26-ioszhong-de-shi-jian.md)
 * [3 . Quartz2D 知识+动画](3-quartz2d-zhi-shi.md)
   * [3.1 简单绘制图形](3-quartz2d-zhi-shi/a-sa-de.md)
+  * [3.2 简单的一些类方法](3-quartz2d-zhi-shi/32-jian-dan-de-yi-xie-lei-fang-fa.md)
 

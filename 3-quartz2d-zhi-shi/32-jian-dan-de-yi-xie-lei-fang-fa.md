@@ -126,8 +126,7 @@
         
         // 生成截屏的view
         self.clipView.frame = clipRect;
-        
-        
+    
         
     }else if (pan.state == UIGestureRecognizerStateEnded){     
         // 图片裁剪，生成一张新的图pian   

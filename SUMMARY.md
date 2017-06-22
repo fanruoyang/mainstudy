@@ -20,4 +20,5 @@
   * [3.1 简单绘制图形](3-quartz2d-zhi-shi/a-sa-de.md)
   * [3.2 简单的一些类方法](3-quartz2d-zhi-shi/32-jian-dan-de-yi-xie-lei-fang-fa.md)
   * [3.3 CAlayer](3-quartz2d-zhi-shi/33-calayer.md)
+  * [3.4 核心动画Core Animation](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma.md)
 

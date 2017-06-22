@@ -51,7 +51,7 @@ position和anchorPoint@property CGPoint position;用来设置CALayer在父层
     
     // 如何判断以后是否需要裁剪图片，就判断下需要显示图层的控件是否是正方形。
 }
-```
+```ß
 #### 3.图片View 缩放
 ```
     // 图层形变
@@ -72,4 +72,179 @@ position和anchorPoint@property CGPoint position;用来设置CALayer在父层
 #### 4.隐式动画
 
 
-#### 5.阴影效果 太阳
+#### 5.时钟
+
+```objc
+//
+//  ViewController.m
+//  06-时钟(了解)
+//
+//  Created by xiaomage on 15/6/23.
+//  Copyright (c) 2015年 xiaomage. All rights reserved.
+//
+
+#import "ViewController.h"
+#define kClockW _clockView.bounds.size.width
+
+
+#define angle2radion(a) ((a) / 180.0 * M_PI)
+// 一秒钟秒针转6°
+#define perSecondA 6
+
+// 一分钟分针转6°
+#define perMinuteA 6
+
+// 一小时时针转30°
+#define perHourA 30
+
+// 每分钟时针转多少度
+#define perMinuteHourA 0.5
+
+
+@interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *clockView;
+
+@property (nonatomic, weak) CALayer *secondLayer;
+
+@property (nonatomic, weak) CALayer *minuteLayer;
+
+@property (nonatomic, weak) CALayer *hourLayer;
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    // 添加时针——————调用顺序
+    [self setUpHourLayer];
+    
+    // 添加分针
+    [self setUpMinuteLayer];
+    
+    // 添加秒针
+    [self setUpSecondLayer];
+    
+    
+    // 添加定时器
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeChange) userInfo:nil repeats:YES];
+    //——————主动调用时间 归位
+    [self timeChange];
+    
+}
+
+- (void)timeChange
+{
+    // 获取当前的系统的时间
+    
+    // 获取当前日历对象
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    // 获取日期的组件：年月日小时分秒
+    // components:需要获取的日期组件
+    // fromDate：获取哪个日期的组件
+    // 经验：以后枚举中有移位运算符，通常一般可以使用并运算（|）
+    NSDateComponents  *cmp = [calendar components:NSCalendarUnitSecond | NSCalendarUnitMinute | NSCalendarUnitHour fromDate:[NSDate date]];
+    
+    // 获取秒
+    NSInteger second = cmp.second;
+    
+    // 获取分
+    NSInteger minute = cmp.minute;
+    
+    // 获取小时
+    NSInteger hour = cmp.hour;
+    
+    // 计算秒针转多少度
+    CGFloat secondA = second * perSecondA;
+    
+    // 计算分针转多少度
+    CGFloat minuteA = minute * perMinuteA;
+    
+    // 计算时针转多少度
+    CGFloat hourA = hour * perHourA + minute * perMinuteHourA;
+    
+    // 旋转秒针
+    _secondLayer.transform = CATransform3DMakeRotation(angle2radion(secondA), 0, 0, 1);
+    
+    // 旋转分针
+    _minuteLayer.transform = CATransform3DMakeRotation(angle2radion(minuteA), 0, 0, 1);
+    
+    // 旋转小时
+    _hourLayer.transform = CATransform3DMakeRotation(angle2radion(hourA), 0, 0, 1);
+}
+#pragma mark - 添加秒针
+- (void)setUpSecondLayer
+{
+   CALayer *secondL = [CALayer layer];
+    
+    secondL.backgroundColor = [UIColor redColor].CGColor;
+    
+    // 设置锚点
+    secondL.anchorPoint = CGPointMake(0.5, 1);
+    
+    secondL.position = CGPointMake(kClockW * 0.5, kClockW * 0.5);
+    
+    secondL.bounds = CGRectMake(0, 0, 1, kClockW * 0.5 - 20);
+    
+    
+    
+    [_clockView.layer addSublayer:secondL];
+    
+    _secondLayer = secondL;
+}
+
+
+#pragma mark - 添加分针
+- (void)setUpMinuteLayer
+{
+    CALayer *layer = [CALayer layer];
+    
+    layer.backgroundColor = [UIColor blackColor].CGColor;
+    
+    // 设置锚点
+    layer.anchorPoint = CGPointMake(0.5, 1);
+    
+    layer.position = CGPointMake(kClockW * 0.5, kClockW * 0.5);
+    
+    layer.bounds = CGRectMake(0, 0, 4, kClockW * 0.5 - 20);
+    
+    layer.cornerRadius = 4;
+    
+    
+    [_clockView.layer addSublayer:layer];
+    
+    _minuteLayer = layer;
+}
+
+#pragma mark - 添加时针
+- (void)setUpHourLayer
+{
+    CALayer *layer = [CALayer layer];
+    
+    layer.backgroundColor = [UIColor blackColor].CGColor;
+    
+    // 设置锚点
+    layer.anchorPoint = CGPointMake(0.5, 1);
+    
+    layer.position = CGPointMake(kClockW * 0.5, kClockW * 0.5);
+    
+    layer.bounds = CGRectMake(0, 0, 4, kClockW * 0.5 - 40);
+    
+    layer.cornerRadius = 4;
+    
+    
+    [_clockView.layer addSublayer:layer];
+    
+    _hourLayer = layer;
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+```

@@ -13,6 +13,7 @@ CALayer是定义在QuartzCore框架中的CGImageRef、CGColorRef两种数据类
 ```
 position和anchorPoint@property CGPoint position;用来设置CALayer在父层中的位置以父层的左上角为原点(0, 0)@property CGPoint anchorPoint;称为“定位点”、“锚点”决定着CALayer身上的哪个点会在position属性所指的位置以自己的左上角为原点(0, 0)它的x、y取值范围都是0~1，默认值为（0.5, 0.5）
 ```
+
 ## 二. 一般使用
 #### 1.阴影效果 太阳
 ```
@@ -68,5 +69,7 @@ position和anchorPoint@property CGPoint position;用来设置CALayer在父层
         
     }];
 ```
-#### 4.阴影效果 太阳
+#### 4.隐式动画
+
+
 #### 5.阴影效果 太阳

@@ -126,14 +126,8 @@
     NSLog(@"%@", NSStringFromCGPoint(_redView.layer.position));
 }
 ```
-##### 6. 转盘效果__DEMO
 
-##### 7. 折叠图片__DEMO
 
-##### 8. 音量震动条__DEMO
 
-##### 9. 菊花旋转 下载__DEMO
-
-##### 10. 粒子效果——传递__DEMO
 
 

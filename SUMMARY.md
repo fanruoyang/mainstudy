@@ -21,4 +21,11 @@
   * [3.2 简单的一些类方法](3-quartz2d-zhi-shi/32-jian-dan-de-yi-xie-lei-fang-fa.md)
   * [3.3 CAlayer](3-quartz2d-zhi-shi/33-calayer.md)
   * [3.4 核心动画Core Animation](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma.md)
+    * [3.4.0 转盘效果 ——demo](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/340-zhuan-pan-xiao-guo-demo.md)
+    * [3.4.1 折叠效果](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/341-zhuan-pan-xiao-guo.md)
+    * [3.4.2 音量震动条](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/342-yin-liang-zhen-dong-tiao.md)
+    * [3.4.3 活动指示器——菊花旋转](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/343-huo-dong-zhi-shi-qi-2014-2014-ju-hua-xuan-zhuan.md)
+    * [3.4.4 粒子动画](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/344-li-zi-dong-hua.md)
+    * [3.4.5 倒影](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/345-dao-ying.md)
+    * [3.4.6 qq 粘性效果](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/346-qq-nian-xing-xiao-guo.md)
 

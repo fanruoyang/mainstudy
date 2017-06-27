@@ -28,4 +28,8 @@
     * [3.4.4 粒子动画](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/344-li-zi-dong-hua.md)
     * [3.4.5 倒影](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/345-dao-ying.md)
     * [3.4.6 qq 粘性效果](3-quartz2d-zhi-shi/34-he-xin-dong-hua-dai-ma/346-qq-nian-xing-xiao-guo.md)
+  * [3.5 简单项目](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu.md)
+    * [3.5.1 微博弹出框](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/351-wei-bo-dan-chu-kuang.md)
+    * [3.5.2 gif 走路图](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/352-gif-zou-lu-tu.md)
+    * [3.5.3 彩票项目](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/353-cai-piao-xiang-mu.md)
 

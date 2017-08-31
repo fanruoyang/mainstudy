@@ -32,6 +32,6 @@
     * [3.5.1 微博弹出框](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/351-wei-bo-dan-chu-kuang.md)
     * [3.5.2 gif 走路图](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/352-gif-zou-lu-tu.md)
     * [3.5.3 彩票项目](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/353-cai-piao-xiang-mu.md)
-
-
+* [4.项目提高](4xiang-mu-ti-gao.md)
+  * [4.1 轮番图底层](41-ye-wu-lei-feng-zhuang-ff0c-lun-fan-tu-di-ceng.md)
 

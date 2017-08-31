@@ -170,5 +170,5 @@ UINib *nib = [UINib nibWithNibName:@"xib文件名" bundle:nil];
 NSArray *views = [nib instantiateWithOwner:nil options:nil];
 ```
 
-![](images/Snip20150602_300.png)
-![](images/Snip20150602_152.png)
+![](/assets/Snip20150602_300.png)
+![](/assets/Snip20150602_152.png)

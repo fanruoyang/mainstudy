@@ -59,7 +59,8 @@
 
 - 1.自定义左右按钮，注意一点是调用苹果自带的时候图片会有渲染状态，需要取消选择模式
       // 通过代码告诉苹果不要渲染图片
-      image = [image           imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+      image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+- 2.自定义左右按钮，注意一点是调用苹果自带的时候图片会有渲染状态，需要取消选择模式
 
 ####5. UIViewController 的生命周期
 - 1.需要了解的有5个周期 

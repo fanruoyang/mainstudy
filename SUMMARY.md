@@ -34,4 +34,5 @@
     * [3.5.3 彩票项目](3-quartz2d-zhi-shi/35-jian-dan-xiang-mu/353-cai-piao-xiang-mu.md)
 * [4.项目提高](4xiang-mu-ti-gao.md)
   * [4.1 轮番图底层](41-ye-wu-lei-feng-zhuang-ff0c-lun-fan-tu-di-ceng.md)
+  * [4.2 侧滑（runtime）](42-fang-wen-ping-guo-de-si-you-shu-xing-ff0c-xu-yao-yong-runtime.md)
 

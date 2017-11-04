@@ -57,11 +57,18 @@
 ```
 ####4. UINavigationController 导航栏内容
 
+###### a 当前类或者他的子类第一次使用的时候才会调用      + (void)initialize{}
+
 - 1.自定义左右按钮，注意一点是调用苹果自带的时候图片会有渲染状态，需要取消选择模式
       // 通过代码告诉苹果不要渲染图片
       image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-- 2.自定义左右按钮，注意一点是调用苹果自带的时候图片会有渲染状态，需要取消选择模式
+- 2.通过设置图片Xcode
+      打开图片，右面设置  Render AS ———>Original Image 可以了
 
+- 3.可以跳转返回按钮文字的偏移量  -->一般不用
+   [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];
+   
+   
 ####5. UIViewController 的生命周期
 - 1.需要了解的有5个周期 
 ```

@@ -16,5 +16,9 @@
 }
 ```
 #### 3 高斯模糊效果
-####### 截屏后进行处理 
+###### 截屏后进行处理 
 #####a. DRNRealTimeBlurView 第三方框架，建立VIew 继承
+
+#### 4 Block 的循环引用
+###### 1. block会把代码里面的强指针全部强引用
+###### 2. _weak typeof(self) weakSelf=self //typeof获取括号里面的类型

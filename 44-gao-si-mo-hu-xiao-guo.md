@@ -34,7 +34,7 @@
 [a removeFromParentViewController];
 ```
 
-####  知识点
+####  知识点 1
 ```objc
  /**
  * 当一个控制器从父控制器中移除时。会自动调用控制器的didMoveToParentViewController:方法，并且参数是nil

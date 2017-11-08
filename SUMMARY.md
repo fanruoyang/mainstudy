@@ -36,5 +36,5 @@
   * [4.1 轮番图底层](41-ye-wu-lei-feng-zhuang-ff0c-lun-fan-tu-di-ceng.md)
   * [4.2 侧滑（runtime）](42-fang-wen-ping-guo-de-si-you-shu-xing-ff0c-xu-yao-yong-runtime.md)
   * [4.3  设置界面的cell](43-she-zhi-jie-mian-de-cell-mvc-si-xiang.md)
-  * [4.4 ](44-gao-si-mo-hu-xiao-guo.md)
+  * [4.4 关于控制器的父子关系](44-gao-si-mo-hu-xiao-guo.md)
 

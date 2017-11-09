@@ -57,3 +57,4 @@
         #define keyPath(objc,keyPath) @(((void)objc.keyPath,#keyPath))
 
   // 宏的操作原理，每输入一个字母就会直接把宏右边的拷贝，并且会自动补齐前面的内容。
+    

@@ -24,3 +24,5 @@
 ###### 2. _weak typeof(self) weakSelf=self //typeof获取括号里面的类型
 
 #### 5 同一个view添加到同一个父控件 添加多少次 都算一次，只有一份内存
+
+#### 6 static

@@ -2,6 +2,8 @@
 
 * [Introducition](README.md)
 * [视频学习笔记总结](chapter1.md)
+* [底层进阶](di-ceng-jin-jie.md)
+  * 1
 * [1 UI 基础 控件](di-yi-ge.md)
   * [1.1 九宫格 封装 懒加载 plist](di-yi-ge/di-yi-ge-0.md)
   * [1.2 Scrollview](di-yi-ge/di-er-ge.md)
@@ -39,4 +41,6 @@
   * [4.4 关于控制器的父子关系](44-gao-si-mo-hu-xiao-guo.md)
   * [4.5 表示图联动](45-biao-shi-tu-lian-dong.md)
   * [4.6 网易新闻客户滑动](46-wang-yi-xin-wen-ke-hu-hua-dong.md)
+    * [1.label 重写](46-wang-yi-xin-wen-ke-hu-hua-dong/1.md)
+    * 2. 让中心的Label 滑动是停在最上方
 

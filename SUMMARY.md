@@ -38,4 +38,5 @@
   * [4.3  设置界面的cell](43-she-zhi-jie-mian-de-cell-mvc-si-xiang.md)
   * [4.4 关于控制器的父子关系](44-gao-si-mo-hu-xiao-guo.md)
   * [4.5 表示图联动](45-biao-shi-tu-lian-dong.md)
+  * [4.6 网易新闻客户滑动](46-wang-yi-xin-wen-ke-hu-hua-dong.md)
 

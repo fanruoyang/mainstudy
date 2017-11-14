@@ -76,3 +76,10 @@
     
     NSLog(@"%d %f", p2.age, p2.money);
     }
+####  9 property 的修饰 copy ,strong 的区别
+    copy 修饰，相当于set方法中将字符串copy为不可变对象，如果字符  串是可变的，依然变为不可变，无法修改
+ 
+    strong 修饰，相当于 set 方法中 直接=赋值，还是原来的对象，如果字符串可变，依然可以进行修改
+    
+###### 如果用copy 修饰NSMutable不可变对象，本身写法是由问题的    
+    

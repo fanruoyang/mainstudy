@@ -42,5 +42,5 @@
   * [4.5 表示图联动](45-biao-shi-tu-lian-dong.md)
   * [4.6 网易新闻客户滑动](46-wang-yi-xin-wen-ke-hu-hua-dong.md)
     * [1.label 重写](46-wang-yi-xin-wen-ke-hu-hua-dong/1.md)
-    * 2. 让中心的Label 滑动是停在最上方
+  * [4.7 ScrollView 的使用场景 ](47-scrollview-de-shi-yong-chang-jing.md)
 

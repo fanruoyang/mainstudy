@@ -13,7 +13,7 @@
 - 5.利用scrollview进行缩放
 ```objc
       UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"default_pic"]];
-    [self.scrollView addSubview:imageView];
+    [self.scrollView addSubview:imageView];contentSize
     self.imageView=imageView;
     self.scrollView.delegate=self;
     self.scrollView.contentSize=self.imageView.image.size;
@@ -112,3 +112,8 @@
 - 当frame 改变后进行动画效果的改变
 
   [self.view laoutIfNeeded];
+  
+  
+  
+  ### 项目提高中有更多使用场景
+  

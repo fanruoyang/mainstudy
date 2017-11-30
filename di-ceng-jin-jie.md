@@ -1,14 +1,17 @@
 ##### 1 Runloop 的结构和循环流程，用Runloop做过什么事情。
 ##### 2 Runtime。
 ##### 3 多线程，NSOperationQueue 和 GCD 的区别。用多线程做过什么事情。线程安全的问题。加锁有几种方式。
+##### 4 https 的工作原理，和 http 的区别。RSA 加密原理。
+###### NSURLSession 和 NSURLConnection 的区别，NSURLConnection 是怎么封装的。CFNetwork。
+###### 网络层级，TCP 和 UDP 的区别。
 
 Block的底层原理，结构，内存以及需要注意的地方。
 图片渲染，一张 png/jpg 格式的图片渲染到页面上显示有哪些流程。png和jpg的区别。png一定是无损的吗？
 
-NSURLSession 和 NSURLConnection 的区别，NSURLConnection 是怎么封装的。CFNetwork。
+
 做过什么动画。
-https 的工作原理，和 http 的区别。RSA 加密原理。
-网络层级，TCP 和 UDP 的区别。
+
+
 SDWebImage 的框架结构，缓存机制。
 Git 的 rebase 的原理。Git 流程。
 对组件化的了解，组件化是为了解决什么问题。

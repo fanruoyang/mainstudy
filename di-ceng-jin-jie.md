@@ -4,7 +4,7 @@
 ##### 4 https 的工作原理，和 http 的区别。RSA 加密原理。
 ###### NSURLSession 和 NSURLConnection 的区别，NSURLConnection 是怎么封装的。CFNetwork。
 ###### 网络层级，TCP 和 UDP 的区别。
-
+##### 5 响应者链条
 Block的底层原理，结构，内存以及需要注意的地方。
 图片渲染，一张 png/jpg 格式的图片渲染到页面上显示有哪些流程。png和jpg的区别。png一定是无损的吗？
 

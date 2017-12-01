@@ -1,3 +1,4 @@
+http://www.jianshu.com/p/2d57c72016c6 总结的不错
 ###1. GCD简介
 GCD可用于多核的并行运算
 GCD会自动利用更多的CPU内核（比如双核、四核）

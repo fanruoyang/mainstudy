@@ -357,7 +357,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 可以看到在其他线程中先执行操作，执行完了之后回到主线程执行主线程的相应操作。
 ###6. GCD的其他方法
 
-1. GCD的栅栏方法 dispatch_barrier_async
+####1. GCD的栅栏方法 dispatch_barrier_async
 
 我们有时需要异步执行两组操作，而且第一组操作执行完之后，才能开始执行第二组操作。这样我们就需要一个相当于栅栏一样的一个方法将两组异步执行的操作组给分割起来，当然这里的操作组里可以包含一个或多个任务。这就需要用到dispatch_barrier_async方法在两个操作组间形成栅栏。
 ```

@@ -46,7 +46,7 @@ dispatch_queue_t queue= dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCU
 ```
 对于并行队列，还可以使用dispatch_get_global_queue来创建全局并行队列。GCD默认提供了全局的并行队列，需要传入两个参数。第一个参数表示队列优先级，一般用DISPATCH_QUEUE_PRIORITY_DEFAULT。第二个参数暂时没用，用0即可。
 #### 2. 任务的创建方法
-
+```objc
 // 同步执行任务创建方法
 dispatch_sync(queue, ^{
     NSLog(@"%@",[NSThread currentThread]);    // 这里放任务代码
@@ -55,6 +55,7 @@ dispatch_sync(queue, ^{
 dispatch_async(queue, ^{
     NSLog(@"%@",[NSThread currentThread]);    // 这里放任务代码
 });
+```
 虽然使用GCD只需两步，但是既然我们有两种队列，两种任务执行方式，那么我们就有了四种不同的组合方式。这四种不同的组合方式是
 
 并行队列 + 同步执行

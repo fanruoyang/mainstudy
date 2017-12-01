@@ -111,9 +111,10 @@ dispatch_async(queue, ^{
 ```
 从并行队列 + 同步执行中可以看到，所有任务都是在主线程中执行的。由于只有一个线程，所以任务只能一个一个执行。
 同时我们还可以看到，所有任务都在打印的syncConcurrent---begin和syncConcurrent---end之间，这说明任务是添加到队列中马上执行的。
-2. 并行队列 + 异步执行
+#### 2. 并行队列 + 异步执行
 
 可同时开启多线程，任务交替执行
+```objc
 - (void) asyncConcurrent
 {
     NSLog(@"asyncConcurrent---begin");
@@ -148,13 +149,15 @@ dispatch_async(queue, ^{
 2016-09-03 19:27:31.504 GCD[11595:1901626] 1------<NSThread: 0x7f8309c22080>{number = 2, name = (null)}
 2016-09-03 19:27:31.504 GCD[11595:1901625] 2------<NSThread: 0x7f8309f0b790>{number = 4, name = (null)}
 2016-09-03 19:27:31.505 GCD[11595:1901855] 3------<NSThread: 0x7f8309e1a950>{number = 3, name = (null)}
+```
 在并行队列 + 异步执行中可以看出，除了主线程，又开启了3个线程，并且任务是交替着同时执行的。
 另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始异步执行。
 接下来再来讲讲串行队列的执行方法。
 
-3. 串行队列 + 同步执行
+#### 3. 串行队列 + 同步执行
 
 不会开启新线程，在当前线程执行任务。任务是串行的，执行完一个任务，再执行下一个任务
+```objc
 - (void) syncSerial
 {
     NSLog(@"syncSerial---begin");
@@ -188,11 +191,13 @@ dispatch_async(queue, ^{
 2016-09-03 19:29:00.067 GCD[11622:1903904] 3------<NSThread: 0x7fa2e9f00980>{number = 1, name = main}
 2016-09-03 19:29:00.068 GCD[11622:1903904] 3------<NSThread: 0x7fa2e9f00980>{number = 1, name = main}
 2016-09-03 19:29:00.068 GCD[11622:1903904] syncSerial---end
+```
 在串行队列 + 同步执行可以看到，所有任务都是在主线程中执行的，并没有开启新的线程。而且由于串行队列，所以按顺序一个一个执行。
 同时我们还可以看到，所有任务都在打印的syncConcurrent---begin和syncConcurrent---end之间，这说明任务是添加到队列中马上执行的。
-4. 串行队列 + 异步执行
+#### 4. 串行队列 + 异步执行
 
 会开启新线程，但是因为任务是串行的，执行完一个任务，再执行下一个任务
+```objc
 - (void) asyncSerial
 {
     NSLog(@"asyncSerial---begin");
@@ -226,6 +231,7 @@ dispatch_async(queue, ^{
 2016-09-03 19:30:08.364 GCD[11648:1905895] 2------<NSThread: 0x7fb548c0e390>{number = 2, name = (null)}
 2016-09-03 19:30:08.365 GCD[11648:1905895] 3------<NSThread: 0x7fb548c0e390>{number = 2, name = (null)}
 2016-09-03 19:30:08.365 GCD[11648:1905895] 3------<NSThread: 0x7fb548c0e390>{number = 2, name = (null)}
+```
 在串行队列 + 异步执行可以看到，开启了一条新线程，但是任务还是串行，所以任务是一个一个执行。
 另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始同步执行。
 下边讲讲刚才我们提到过的特殊队列——主队列。
@@ -235,7 +241,7 @@ dispatch_async(queue, ^{
 可使用dispatch_get_main_queue()获得主队列
 我们再来看看主队列的两种组合方式。
 
-5. 主队列 + 同步执行
+#### 5. 主队列 + 同步执行
 
 互等卡住不可行(在主线程中调用)
 - (void)syncMain

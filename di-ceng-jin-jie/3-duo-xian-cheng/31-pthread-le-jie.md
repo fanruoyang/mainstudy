@@ -414,18 +414,31 @@ dispatch_once(&onceToken, ^{
 
 通常我们会用for循环遍历，但是GCD给我们提供了快速迭代的方法dispatch_apply，使我们可以同时遍历。比如说遍历0~5这6个数字，for循环的做法是每次取出一个元素，逐个遍历。dispatch_apply可以同时遍历多个数字。
 ```objc
-dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+/**
+ * 快速迭代--->遍历很多数组，同时执行
+ */
+- (void)apply
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    NSString *from = @"/Users/xiaomage/Desktop/From";
+    NSString *to = @"/Users/xiaomage/Desktop/To";
+    //获得文件路径
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    //从文件路径中那到文件名称
+    NSArray *subpaths = [mgr subpathsAtPath:from];
+    
+    dispatch_apply(subpaths.count, queue, ^(size_t index) {
+        NSString *subpath = subpaths[index];
+        //自动加／拼接文件路径
+        NSString *fromFullpath = [from stringByAppendingPathComponent:subpath];
+        NSString *toFullpath = [to stringByAppendingPathComponent:subpath];
+        // 剪切
+        [mgr moveItemAtPath:fromFullpath toPath:toFullpath error:nil];
+        
+        NSLog(@"%@---%@", [NSThread currentThread], subpath);
+    });
+}
 
-dispatch_apply(6, queue, ^(size_t index) {
-    NSLog(@"%zd------%@",index, [NSThread currentThread]);
-});
-输出结果：
-2016-09-03 19:37:02.250 GCD[11764:1915764] 1------<NSThread: 0x7fac9a7029e0>{number = 1, name = main}
-2016-09-03 19:37:02.250 GCD[11764:1915885] 0------<NSThread: 0x7fac9a614bd0>{number = 2, name = (null)}
-2016-09-03 19:37:02.250 GCD[11764:1915886] 2------<NSThread: 0x7fac9a542b20>{number = 3, name = (null)}
-2016-09-03 19:37:02.251 GCD[11764:1915764] 4------<NSThread: 0x7fac9a7029e0>{number = 1, name = main}
-2016-09-03 19:37:02.250 GCD[11764:1915884] 3------<NSThread: 0x7fac9a76ca10>{number = 4, name = (null)}
-2016-09-03 19:37:02.251 GCD[11764:1915885] 5------<NSThread: 0x7fac9a614bd0>{number = 2, name = (null)}
 ```
 从输出结果中前边的时间中可以看出，几乎是同时遍历的。
 

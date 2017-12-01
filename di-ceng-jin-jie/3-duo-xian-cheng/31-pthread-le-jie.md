@@ -365,7 +365,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 2016-09-03 19:34:59.166 GCD[11728:1912961] 2-------<NSThread: 0x7f8319e00560>{number = 1, name = main}
 ```
 可以看到在其他线程中先执行操作，执行完了之后回到主线程执行主线程的相应操作。
-6. GCD的其他方法
+###6. GCD的其他方法
 
 1. GCD的栅栏方法 dispatch_barrier_async
 

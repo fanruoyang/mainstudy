@@ -360,7 +360,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 1. GCD的栅栏方法 dispatch_barrier_async
 
 我们有时需要异步执行两组操作，而且第一组操作执行完之后，才能开始执行第二组操作。这样我们就需要一个相当于栅栏一样的一个方法将两组异步执行的操作组给分割起来，当然这里的操作组里可以包含一个或多个任务。这就需要用到dispatch_barrier_async方法在两个操作组间形成栅栏。
-
+```
 - (void)barrier
 {
     dispatch_queue_t queue = dispatch_queue_create("12312312", DISPATCH_QUEUE_CONCURRENT);
@@ -389,15 +389,17 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 2016-09-03 19:35:51.272 GCD[11750:1914722] ----barrier-----<NSThread: 0x7fb182423fd0>{number = 3, name = (null)}
 2016-09-03 19:35:51.273 GCD[11750:1914722] ----3-----<NSThread: 0x7fb182423fd0>{number = 3, name = (null)}
 2016-09-03 19:35:51.273 GCD[11750:1914724] ----4-----<NSThread: 0x7fb1826047b0>{number = 2, name = (null)}
+```
 可以看出在执行完栅栏前面的操作之后，才执行栅栏操作，最后再执行栅栏后边的操作。
-2. GCD的延时执行方法 dispatch_after
+##### 2. GCD的延时执行方法 dispatch_after
 
 当我们需要延迟执行一段代码时，就需要用到GCD的dispatch_after方法。
-
+```
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // 2秒后异步执行这里的代码...
     NSLog(@"run-----");
 });
+```
 ##### 3. GCD的一次性代码(只执行一次) dispatch_once
 
 我们在创建单例、或者有整个程序运行过程中只执行一次的代码时，我们就用到了GCD的dispatch_once方法。使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次。

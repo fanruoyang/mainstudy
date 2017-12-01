@@ -398,17 +398,19 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), 
     // 2秒后异步执行这里的代码...
     NSLog(@"run-----");
 });
-3. GCD的一次性代码(只执行一次) dispatch_once
+##### 3. GCD的一次性代码(只执行一次) dispatch_once
 
 我们在创建单例、或者有整个程序运行过程中只执行一次的代码时，我们就用到了GCD的dispatch_once方法。使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次。
-
+```objc
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{
     // 只执行1次的代码(这里面默认是线程安全的)
 });
-4. GCD的快速迭代方法 dispatch_apply
+```
+##### 4. GCD的快速迭代方法 dispatch_apply
 
 通常我们会用for循环遍历，但是GCD给我们提供了快速迭代的方法dispatch_apply，使我们可以同时遍历。比如说遍历0~5这6个数字，for循环的做法是每次取出一个元素，逐个遍历。dispatch_apply可以同时遍历多个数字。
+```objc
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
 dispatch_apply(6, queue, ^(size_t index) {
@@ -421,9 +423,10 @@ dispatch_apply(6, queue, ^(size_t index) {
 2016-09-03 19:37:02.251 GCD[11764:1915764] 4------<NSThread: 0x7fac9a7029e0>{number = 1, name = main}
 2016-09-03 19:37:02.250 GCD[11764:1915884] 3------<NSThread: 0x7fac9a76ca10>{number = 4, name = (null)}
 2016-09-03 19:37:02.251 GCD[11764:1915885] 5------<NSThread: 0x7fac9a614bd0>{number = 2, name = (null)}
+```
 从输出结果中前边的时间中可以看出，几乎是同时遍历的。
 
-5. GCD的队列组 dispatch_group
+##### 5. GCD的队列组 dispatch_group
 
 有时候我们会有这样的需求：分别异步执行2个耗时操作，然后当2个耗时操作都执行完毕后再回到主线程执行操作。这时候我们可以用到GCD的队列组。
 我们可以先把任务放到队列中，然后将队列放入队列组中。

@@ -345,10 +345,10 @@ dispatch_async(queue, ^{
 另一方面可以看出，所有任务是在打印的syncConcurrent---begin和syncConcurrent---end之后才开始执行的。说明任务不是马上执行，而是将所有任务添加到队列之后才开始同步执行。
 弄懂了难理解、绕来绕去的队列+任务之后，我们来学习一个简单的东西——GCD线程之间的通讯。
 
-5. GCD线程之间的通讯
+### 5. GCD线程之间的通讯
 
 在iOS开发过程中，我们一般在主线程里边进行UI刷新，例如：点击、滚动、拖拽等事件。我们通常把一些耗时的操作放在其他线程，比如说图片下载、文件上传等耗时操作。而当我们有时候在其他线程完成了耗时操作时，需要回到主线程，那么就用到了线程之间的通讯。
-
+```objc
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     for (int i = 0; i < 2; ++i) {
         NSLog(@"1------%@",[NSThread currentThread]);
@@ -363,6 +363,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 2016-09-03 19:34:59.165 GCD[11728:1913039] 1------<NSThread: 0x7f8319c06820>{number = 2, name = (null)}
 2016-09-03 19:34:59.166 GCD[11728:1913039] 1------<NSThread: 0x7f8319c06820>{number = 2, name = (null)}
 2016-09-03 19:34:59.166 GCD[11728:1912961] 2-------<NSThread: 0x7f8319e00560>{number = 1, name = main}
+```
 可以看到在其他线程中先执行操作，执行完了之后回到主线程执行主线程的相应操作。
 6. GCD的其他方法
 

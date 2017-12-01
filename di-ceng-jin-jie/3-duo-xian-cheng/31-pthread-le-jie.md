@@ -67,13 +67,14 @@ dispatch_async(queue, ^{
 ![](/assets/QQ20171201-095913@2x.png)
 
 
-4. GCD的基本使用
+### 4. GCD的基本使用
 
 先来讲讲并行队列的两种使用方法。
 
-1. 并行队列 + 同步执行
+#### 1. 并行队列 + 同步执行
 
 不会开启新线程，执行完一个任务，再执行下一个任务
+```objc
 - (void) syncConcurrent
 {
     NSLog(@"syncConcurrent---begin");
@@ -107,6 +108,7 @@ dispatch_async(queue, ^{
 2016-09-03 19:22:27.579 GCD[11557:1897538] 3------<NSThread: 0x7f82a1d058b0>{number = 1, name = main}
 2016-09-03 19:22:27.579 GCD[11557:1897538] 3------<NSThread: 0x7f82a1d058b0>{number = 1, name = main}
 2016-09-03 19:22:27.579 GCD[11557:1897538] syncConcurrent---end
+```
 从并行队列 + 同步执行中可以看到，所有任务都是在主线程中执行的。由于只有一个线程，所以任务只能一个一个执行。
 同时我们还可以看到，所有任务都在打印的syncConcurrent---begin和syncConcurrent---end之间，这说明任务是添加到队列中马上执行的。
 2. 并行队列 + 异步执行

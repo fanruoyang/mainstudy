@@ -428,7 +428,7 @@ dispatch_apply(6, queue, ^(size_t index) {
 有时候我们会有这样的需求：分别异步执行2个耗时操作，然后当2个耗时操作都执行完毕后再回到主线程执行操作。这时候我们可以用到GCD的队列组。
 我们可以先把任务放到队列中，然后将队列放入队列组中。
 调用队列组的dispatch_group_notify回到主线程执行操作。
-
+```objc
 dispatch_group_t group =  dispatch_group_create();
 
 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -442,4 +442,4 @@ dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DE
 dispatch_group_notify(group, dispatch_get_main_queue(), ^{
     // 等前面的异步操作都执行完毕后，回到主线程...
 });
-
+```

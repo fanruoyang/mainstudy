@@ -64,6 +64,33 @@ static Tools *_instance;
     return _instance;
 }
 
+/*
++(instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+    if (_person == nil) {
+        _person=[self allocWithZone:zone];
+        }
+    });
+
+    return _person;
+
+}
+
++(instancetype)sharePerson{
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+    if (_person == nil) {
+        _person=[[self alloc]init];
+        }
+    });
+    
+    return _person;
+
+}
+*/
 ```
 ##### 可以在.h 文件里面定义一个宏 ，然后调用.h文件就可以用了
 

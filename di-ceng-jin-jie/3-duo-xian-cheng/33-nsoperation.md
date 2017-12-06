@@ -134,5 +134,40 @@ NSOperationQueue的cancelAllOperations相当于队列中的每个**operation调�
 isSuspended : 判断是否挂起
 setSuspended: YES表示挂起,NO表示恢复
 和取消功能类似,**我们同样不能挂起正在运行中的操作**,队列会等当前操作结束后将后面的操作暂停(挂起)
-##### 5 操作依赖
+##### 5 操作依赖--下载图片后拼接
+```
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"download1----%@", [NSThread  currentThread]);
+    }];
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"download2----%@", [NSThread  currentThread]);
+    }];
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"download3----%@", [NSThread  currentThread]);
+    }];
+    NSBlockOperation *op4 = [NSBlockOperation blockOperationWithBlock:^{
+        for (NSInteger i = 0; i<10; i++) {
+            NSLog(@"download4----%@", [NSThread  currentThread]);
+        }
+    }];
+    NSBlockOperation *op5 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"download5----%@", [NSThread  currentThread]);
+    }];
+    op5.completionBlock = ^{
+        NSLog(@"op5执行完毕---%@", [NSThread currentThread]);
+    };
+    
+    // 设置依赖
+    [op3 addDependency:op1];
+    [op3 addDependency:op2];
+    [op3 addDependency:op4];
+    
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+    [queue addOperation:op3];
+    [queue addOperation:op4];
+    [queue addOperation:op5];
+```
 

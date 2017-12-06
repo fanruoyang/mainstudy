@@ -107,8 +107,6 @@ isAsynchronous: 该方法默认返回 NO ，表示非并发执行。并发执行
 NSOperationQueue可以通过以下方法设置最大并发数,
 setMaxConcurrentOperationCount:,值得注意的是:**当并发数为1就变成了串行执行任务
 **
-
-
 ```
   // 创建队列
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -126,5 +124,15 @@ setMaxConcurrentOperationCount:,值得注意的是:**当并发数为1就变成�
         [NSThread sleepForTimeInterval:0.01];
     }];
 ```
+##### 4 NSOperationQueue的暂停恢复和取消
 
+- 取消
+NSOperation有一个cancel方法可以取消单个操作
+NSOperationQueue的cancelAllOperations相当于队列中的每个**operation调用了cancel方法,会取消队列里面全部的操作.**
+但是,**不能取消正在进行中的任务**,队列调用了cancelAllOperations后会等当前正在进行的任务执行完闭后取消后面的操作
+- 挂起和恢复
+isSuspended : 判断是否挂起
+setSuspended: YES表示挂起,NO表示恢复
+和取消功能类似,**我们同样不能挂起正在运行中的操作**,队列会等当前操作结束后将后面的操作暂停(挂起)
+##### 5 操作依赖
 

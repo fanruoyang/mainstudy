@@ -1,5 +1,3 @@
-
-
 #### 使用NSOperation 基本
 NSOperation本身是一个抽象类,要使用可以通过以下几个办法:
 #####1 使用NSInvocationOperation
@@ -15,9 +13,7 @@ NSOperation本身是一个抽象类,要使用可以通过以下几个办法:
 }
 ```
 根据打印的结果我们会发现,直接调用start方法时,系统并不会开辟一个新的线程去执行任务,任务会在**当前线程同步执行**.
-
 `注意:` 这里我们说的是当前线程而非主线程,意即:如果是在主线程中调用op的start方法,那么该任务是在主线程中执行;但如果是在其他子线程调用start方法,任务则是在其他子线程执行.
-
 #####2 使用NSBlockOperation
 
 ```
@@ -43,9 +39,7 @@ NSOperation本身是一个抽象类,要使用可以通过以下几个办法:
 }
 ```
 NSBlockOperation还有一种使用方法addExecutionBlock:使得我们可以给其添加更多的操作,**额外的任务在子线程执行**即**:当NSBlockOperation封装的操作数大于1的时候,就会执行异步操作.**
-
 #####3 自定义NSOperation的子类
-
 - 1.子类化NSOperation
 - 2.在.m文件里面实现-(void)main方法
 - 3.初始化该操作的时候直接调用alloc及init即可
@@ -53,7 +47,6 @@ NSBlockOperation还有一种使用方法addExecutionBlock:使得我们可以给�
 
 ##### 这里要注意 必须为自定义的 operation 提供 autorelease pool，因为 operation 完成后需要销毁。
 ```
-
    NSOperation *op=[[XMGOperation alloc] init];
 - (void)main
 {
@@ -158,7 +151,6 @@ setSuspended: YES表示挂起,NO表示恢复
     op5.completionBlock = ^{
         NSLog(@"op5执行完毕---%@", [NSThread currentThread]);
     };
-    
     // 设置依赖
     [op3 addDependency:op1];
     [op3 addDependency:op2];

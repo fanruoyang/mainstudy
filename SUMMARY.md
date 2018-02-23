@@ -51,4 +51,5 @@
     * [4.7 ScrollView 的使用场景 ](47-scrollview-de-shi-yong-chang-jing.md)
 * [4.SVN GIT](4svn-git.md)
 * [5 swift](5-swift.md)
+* [6 内购](6-nei-gou.md)
 

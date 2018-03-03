@@ -5,7 +5,7 @@
 
 - 类方法
 
-oc [UIcorlor redcolor] , swift UIcolor.redcolor
+  oc [UIcorlor redcolor] , swift UIcolor.redcolor
 
  
 - swift 里面没有分好 

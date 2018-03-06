@@ -55,5 +55,6 @@
 * [5 swift](5-swift.md)
 * [6 内购](6-nei-gou.md)
 * [7 密码学](7-mi-ma-xue.md)
+  * [7.1 终端测试命令](7-mi-ma-xue/71-zhong-duan-ce-shi-ming-ling.md)
 * [8 项目问题](quan-wen.md)
 

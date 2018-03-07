@@ -1,4 +1,4 @@
-####### http://www.cocoachina.com/ios/20171207/21466.html?utm_source=tuicool&utm_medium=referral
+###### http://www.cocoachina.com/ios/20171207/21466.html?utm_source=tuicool&utm_medium=referral
 #### 1 理解
 - 1 内购的产品内容，详细信息需要从苹果获取
 - 2 我们用来展示的内容，最好还是跟服务器获取，然后拿到对应的ID,在去请求所有的信息

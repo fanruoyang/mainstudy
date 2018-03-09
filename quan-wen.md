@@ -4,3 +4,6 @@
 
 #### 2 architecture x86_64 错误
 - 在真机上使用就行
+
+##### 3 将URL转换成Image
+UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@""]]];     

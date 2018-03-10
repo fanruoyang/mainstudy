@@ -45,6 +45,7 @@ setting[AVEncoderAudioQualityKey] = [NSNumber numberWithInt:AVAudioQualityHigh];
 #### 2播放音效 
 - 封装好
 - 这里的桥接URL可能会内存泄漏
+
 ```
 #import "XMGAudioTool.h"
 #import <AVFoundation/AVFoundation.h>

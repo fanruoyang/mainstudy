@@ -20,6 +20,8 @@
   * [1.4 TableView](di-yi-ge/14-tableview.md)
   * [1.5 imageView+Buttion](di-yi-ge/15-imageview+buttion.md)
   * [1.6 代理+通知](di-yi-ge/16-dai-7406+-tong-zhi.md)
+  * [1.7 其他控件](di-yi-ge/17-qi-ta-kong-jian.md)
+    * [1.7.1  UISilder](di-yi-ge/17-qi-ta-kong-jian/171-uisilder.md)
 * [2. UI 进阶 类控件](di-er-ge.md)
   * [2.1 属性代码](di-er-ge/di-er-ge-0.md)
   * [2.2 UIPickView](di-er-ge/uipickview.md)
@@ -62,4 +64,5 @@
 * [9 知识点](9-zhi-shi-dian.md)
 * [10 音视频](10-yin-shi-pin.md)
   * [10.1 音频](10-yin-shi-pin/101-yin-pin.md)
+  * [10.2 qq音乐播放器](10-yin-shi-pin/102-qqyin-le-bo-fang-qi.md)
 

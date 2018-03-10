@@ -45,6 +45,7 @@ setting[AVEncoderAudioQualityKey] = [NSNumber numberWithInt:AVAudioQualityHigh];
 #### 2播放音效 
 - 封装好
 - 这里的桥接URL可能会内存泄漏
+- 也可以用单例，那样就可以直接进行@por
 
 ```
 #import "XMGAudioTool.h"
@@ -87,3 +88,77 @@ static NSMutableDictionary *_soundIDs;
     AudioServicesPlaySystemSound(soundID);
 }
 ```
+##### 3 播放音乐
+- 简单的播放，实际中会考虑到很多状况 
+- 跟随上方
+
+```
+// 播放音乐 musicName : 音乐的名称
++ (void)playMusicWithMusicName:(NSString *)musicName;
+// 暂停音乐 musicName : 音乐的名称
++ (void)pauseMusicWithMusicName:(NSString *)musicName;
+// 停止音乐 musicName : 音乐的名称
++ (void)stopMusicWithMusicName:(NSString *)musicName;
+
+.m
++ (void)playMusicWithMusicName:(NSString *)musicName
+{
+    //断言，如果为空，直接崩溃。发布的时候不用，我干了2年多也没用到过
+    assert(musicName);
+    
+    // 1.定义播放器
+    AVAudioPlayer *player = nil;
+    
+    // 2.从字典中取player,如果取出出来是空,则对应创建对应的播放器
+    player = _players[musicName];
+    if (player == nil) {
+        // 2.1.获取对应音乐资源
+        NSURL *fileUrl = [[NSBundle mainBundle] URLForResource:musicName withExtension:nil];
+        
+        if (fileUrl == nil) return;
+        
+        // 2.2.创建对应的播放器
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileUrl error:nil];
+        
+        // 2.3.将player存入字典中
+        [_players setObject:player forKey:musicName];
+        
+        // 2.4.准备播放
+        [player prepareToPlay];
+    }
+    
+    // 3.播放音乐
+    [player play];
+}
+
++ (void)pauseMusicWithMusicName:(NSString *)musicName
+{
+    assert(musicName);
+    
+    // 1.取出对应的播放
+    AVAudioPlayer *player = _players[musicName];
+    
+    // 2.判断player是否nil
+    if (player) {
+        [player pause];
+    }
+}
+
++ (void)stopMusicWithMusicName:(NSString *)musicName
+{
+    assert(musicName);
+    
+    // 1.取出对应的播放
+    AVAudioPlayer *player = _players[musicName];
+    
+    // 2.判断player是否nil
+    if (player) {
+        [player stop];
+        [_players removeObjectForKey:musicName];
+        player = nil;
+    }
+}
+
+```
+
+

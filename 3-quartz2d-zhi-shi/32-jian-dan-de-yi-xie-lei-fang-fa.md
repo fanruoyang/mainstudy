@@ -364,5 +364,41 @@
 ```
 
 
+ 
+#### 6 image指定宽度按比例缩放
+```
+-(CGSize) imageCompressForWidthImageSize:(CGSize)defineSize{
+    
+    CGSize imageSize = defineSize;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = kScreenWidth -30;
+    CGFloat targetHeight = height / (width / targetWidth);
+    CGSize size = CGSizeMake(targetWidth, targetHeight);
+    CGFloat scaleFactor = 0.0;
+    CGFloat scaledWidth = targetWidth;
+    CGFloat scaledHeight = targetHeight;
+    
+    if(CGSizeEqualToSize(imageSize, size) == NO)
+    {
+        
+        CGFloat widthFactor = targetWidth / width;
+        CGFloat heightFactor = targetHeight / height;
+        
+        if(widthFactor > heightFactor){
+            scaleFactor = widthFactor;
+        }
+        else{
+            scaleFactor = heightFactor;
+        }
+        scaledWidth = width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        return CGSizeMake(scaledWidth, scaledHeight);
+    }
+    return defineSize;
+}
+```
+
+
 
 

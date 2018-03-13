@@ -1,3 +1,12 @@
+#### 整体流程
+- 1 整体UI的搭建
+- 2 给图片VIEW添加动画
+- 3 进行播放操作
+- 4 进度条的设置
+- 5 使用的播放器AVAudioPlayer
+- 6 歌词的实现
+
+
 ####  1 修改APP的 状态栏颜色
 - 1 单个控制器修改
 
@@ -20,94 +29,26 @@
     [self.albumView addSubview:toolBar];
     toolBar.translatesAutoresizingMaskIntoConstraints = NO;
 ```
-#### 3 播放封装
--.h
-```
-#import <Foundation/Foundation.h>
-@class XMGMusic;
-
-@interface XMGMusicTool : NSObject
-
-+ (NSArray *)musics;
-
-+ (XMGMusic *)playingMusic;
-//设置播放的歌曲
-+ (void)setPlayingMusic:(XMGMusic *)playingMusic;
-
-+ (XMGMusic *)nextMusic;
-
-+ (XMGMusic *)previousMusic;
-
-@end
+#### 3 进度界面的更新
+- 要添加定时器，进行时间的刷新，更新和移除
+###### 这里需要的是在停止的时候要重新给timer 赋值为nil
+- silder 的事件处理，拖动停止完成时候更新，还有一个change的监听
 
 ```
-
-- .m
-
-```objc
-#import "XMGMusic.h"
-#import "MJExtension.h"
-
-@implementation XMGMusicTool
-
-static NSArray *_musics;
-static XMGMusic *_playingMusic;
-
-+ (void)initialize
-{
-    if (_musics == nil) {
-        _musics = [XMGMusic objectArrayWithFilename:@"Musics.plist"];
-    }
+//点击的时候时间改变，然后进行更新
+- (IBAction)sliderClick:(UITapGestureRecognizer *)sender {
+    // 1.获取点击的位置
+    CGPoint point = [sender locationInView:sender.view];
     
-    if (_playingMusic == nil) {
-        _playingMusic = _musics[1];
-    }
-}
-
-+ (NSArray *)musics
-{
-    return _musics;
-}
-
-+ (XMGMusic *)playingMusic
-{
-    return _playingMusic;
-}
-
-+ (void)setPlayingMusic:(XMGMusic *)playingMusic
-{
-    _playingMusic = playingMusic;
-}
-
-+ (XMGMusic *)nextMusic
-{
-    // 1.拿到当前播放歌词下标值
-    NSInteger currentIndex = [_musics indexOfObject:_playingMusic];
+    // 2.获取点击的在slider长度中占据的比例
+    CGFloat ratio = point.x / self.progressSlider.bounds.size.width;
     
-    // 2.取出下一首
-    NSInteger nextIndex = ++currentIndex;
-    if (nextIndex >= _musics.count) {
-        nextIndex = 0;
-    }
-    XMGMusic *nextMusic = _musics[nextIndex];
+    // 3.改变歌曲播放的时间
+    self.currentPlayer.currentTime = ratio * self.currentPlayer.duration;
     
-    return nextMusic;
+    // 4.更新进度信息
+    [self updateProgressInfo];
 }
-
-+ (XMGMusic *)previousMusic
-{
-    // 1.拿到当前播放歌词下标值
-    NSInteger currentIndex = [_musics indexOfObject:_playingMusic];
-    
-    // 2.取出下一首
-    NSInteger previousIndex = --currentIndex;
-    if (previousIndex < 0) {
-        previousIndex = _musics.count - 1;
-    }
-    XMGMusic *previousMusic = _musics[previousIndex];
-    
-    return previousMusic;
-}
-
-
 ```
+
+

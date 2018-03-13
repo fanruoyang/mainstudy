@@ -65,4 +65,6 @@
 * [10 音视频](10-yin-shi-pin.md)
   * [10.1 音频](10-yin-shi-pin/101-yin-pin.md)
   * [10.2 qq音乐播放器](10-yin-shi-pin/102-qqyin-le-bo-fang-qi.md)
+    * [10.2.1 简单封装](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1021-jian-dan-feng-zhuang.md)
+    * [10.2.2 歌词的实现](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1022-ge-ci-de-shi-xian.md)
 

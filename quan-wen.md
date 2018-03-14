@@ -9,6 +9,7 @@
 UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@""]]];     
 
 #### 4 block 的循环，如果在block 中引用当前的类，报警告循环引用
+-Capturing 'view' strongly in this block is likely to lead to a retain cycle
 
 ```
   FH_GodChargeView *view = [[FH_GodChargeView alloc] init];

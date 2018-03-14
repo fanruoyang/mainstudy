@@ -12,6 +12,13 @@
   - 拿着盖了章的单子传给自己的服务器来验证是否真的支付成功
   - 根据服务器返回的信息做具体的处理   
    
+#### 2 遇到内购重购买问题
+
+- 因为是我需要监听到购买成功的时候隐藏对应的VIEW，BLock强引用后，隐藏的时候导致多次添加了通知
+
+- [[SKPaymentQueue defaultQueue] addTransactionObserver:self];这个方法多次添加了
+- 需要在购买完成后的block中移除， [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+    
 ```
 #pragma mark 客户端验证购买凭据
 - (void)verifyTransactionResult
@@ -49,7 +56,7 @@
 
     [storeRequest setHTTPMethod:@"POST"];
     [storeRequest setHTTPBody:requestData];
-
+.
     // 在后台对列中提交验证请求，并获得官方的验证JSON结果
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 

@@ -1,6 +1,9 @@
 ##### 1 侧滑可以查看歌词，用Scrollview
 - 设置宽度，分页
 - 代理方法
+- 歌词的滑动，应用到tableview的滚动方法
+- 文字的大小改变需要进行对应行数的刷新
+- 自定义label，是label可以渐变
 
 ```
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -81,6 +84,26 @@
     NSInteger haomiao = [[timeString componentsSeparatedByString:@"."][1] integerValue];
     
     return (min * 60 + second + haomiao * 0.01);
+}
+
+```
+
+
+
+#####  自定义label，文字变换
+
+```
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    // 1.获取需要画的区域
+    CGRect fillRect = CGRectMake(0, 0, self.bounds.size.width * self.progress, self.bounds.size.height);
+    
+    // 2.设置颜色
+    [[UIColor redColor] set];
+    
+    // 3.添加区域
+    UIRectFillUsingBlendMode(fillRect, kCGBlendModeSourceIn);
 }
 
 ```

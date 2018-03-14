@@ -5,6 +5,9 @@
 - 4 进度条的设置
 - 5 使用的播放器AVAudioPlayer
 - 6 歌词的实现
+- 7 歌词的染色 
+- 8 手机后台播放 a 后台模式 b AppDelegate
+- 9 自动播放下一首，代理方法
 
 
 ####  1 修改APP的 状态栏颜色
@@ -51,4 +54,35 @@
 }
 ```
 
+#### 4 后台播放
 
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // 1.获取音频回话
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    // 2.设置后台播放类别
+    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    // 3.激活回话
+    [session setActive:YES error:nil];
+    
+    return YES;
+}
+
+
+```
+#### 5 自动下一首
+
+```
+#pragma mark - AVAudioplayer的代理方法
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if (flag) {
+        [self next];
+    }
+}
+
+
+```

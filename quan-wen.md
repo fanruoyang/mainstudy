@@ -5,5 +5,15 @@
 #### 2 architecture x86_64 错误
 - 在真机上使用就行
 
-##### 3 将URL转换成Image
+#### 3 将URL转换成Image
 UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@""]]];     
+
+#### 4 block 的循环，如果在block 中引用当前的类，报警告循环引用
+
+```
+  FH_GodChargeView *view = [[FH_GodChargeView alloc] init];
+    __block FH_GodChargeView *blockSelf = view;
+    view.chargeSuccessBlock = ^{
+       [blockSelf backAction];
+    };
+```

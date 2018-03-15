@@ -5,7 +5,7 @@
 
 2.音乐播放（长时间的音频文件）
 1> AVAudioPlayer
-只能播放本地的音频文件
+**只能播放本地的音频文件**
 >MPMusicPlayerController
 
 

@@ -68,4 +68,5 @@
     * [10.2.1 简单封装](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1021-jian-dan-feng-zhuang.md)
     * [10.2.2 歌词的实现](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1022-ge-ci-de-shi-xian.md)
     * [10.2.3 设置锁屏界面](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1023-she-zhi-suo-ping-jie-mian.md)
+  * [10.3 视频](10-yin-shi-pin/103-shi-pin.md)
 

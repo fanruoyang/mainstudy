@@ -84,6 +84,8 @@ UIKeyboardAnimationCurveUserInfoKey // 键盘动画的执行节奏(快慢)
 - KVC(Key Value Coding)常见作用：给模型属性赋值
 - KVO(Key Value Observing)常用作用：监听模型属性值的改变
 - KVO的使用步骤<br>
+- 功能用处
+ -  1 wkwebview里面监听 title 和progress
 
 ```objc
 // cc监听了aa的name属性的改变

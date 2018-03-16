@@ -1,4 +1,4 @@
-#### 1 AVPlayer
+ #### 1 AVPlayer
 
 [self.player play];
 - 音乐

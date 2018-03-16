@@ -69,4 +69,6 @@
     * [10.2.2 歌词的实现](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1022-ge-ci-de-shi-xian.md)
     * [10.2.3 设置锁屏界面](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1023-she-zhi-suo-ping-jie-mian.md)
   * [10.3 视频](10-yin-shi-pin/103-shi-pin.md)
+  * 10.4 直播
+  * [10.5 二维码](10-yin-shi-pin/105-er-wei-ma.md)
 

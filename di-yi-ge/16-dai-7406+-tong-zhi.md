@@ -86,6 +86,7 @@ UIKeyboardAnimationCurveUserInfoKey // 键盘动画的执行节奏(快慢)
 - KVO的使用步骤<br>
 - 功能用处
  -  1 wkwebview里面监听 title 和progress
+ -  2 二维码生成
 
 ```objc
 // cc监听了aa的name属性的改变

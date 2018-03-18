@@ -1,5 +1,5 @@
 #### 0 记得授权
-#### 1 AddressBookUI 自带UI 框架
+#### 1 AddressBookUI 自带UI 框架 （IOS 9 弃用）
 - 提供了联系人列表界面、联系人详情界面、添加联系人界面等
 - 一般用于选择联系人
 - 桥接的内存泄漏，需要手动释放内存
@@ -62,7 +62,8 @@
 }
 
 ```
-#### 2 AddressBook.framework  不带UI框架
+#### 2 AddressBook.framework  不带UI框架 （IOS 9 弃用）
+
 - 纯C语言的API，仅仅是获得联系人数据
 - 没有提供UI界面展示，需要自己搭建联系人展示界面
 - 里面的数据类型大部分基于Core Foundation框架，使用起来极其蛋疼
@@ -125,4 +126,96 @@
 
 
 ```
+
+#### 3 Contacts 框架 IOS 9以后
+- 当使用这个框架的时候, 系统会自动发送授权申请, 不需要手动授权
+- 有UI
+
+```
+    CNContactPickerViewController * contactPickerVc = [CNContactPickerViewController new];
+
+    contactPickerVc.delegate = self;
+
+    [self presentViewController:contactPickerVc animated:YES completion:nil];
+#pragma mark - 选中一个联系人
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact{
+
+    NSLog(@"contact:%@",contact);
+    //phoneNumbers 包含手机号和家庭电话等
+    for (CNLabeledValue * labeledValue in contact.phoneNumbers) {
+
+        CNPhoneNumber * phoneNumber = labeledValue.value;
+
+        NSLog(@"phoneNum:%@", phoneNumber.stringValue);
+
+    }
+}
+
+#pragma mark - 选中一个联系人属性
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperty:(CNContactProperty *)contactProperty{
+
+    NSLog(@"contactProperty:%@",contactProperty);
+}
+
+#pragma mark - 选中一个联系人的多个属性
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContactProperties:(NSArray<CNContactProperty*> *)contactProperties{
+
+    NSLog(@"contactPropertiescontactProperties:%@",contactProperties);
+}
+
+#pragma mark - 选中多个联系人
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContacts:(NSArray<CNContact*> *)contacts{
+
+    NSLog(@"contactscontacts:%@",contacts);
+}
+
+```
+
+- 没UI
+
+```
+    if (event.type == 0) {
+        //判断授权状态
+        if ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts] == CNAuthorizationStatusNotDetermined) {
+
+            CNContactStore *store = [[CNContactStore alloc] init];
+            [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                if (granted) {
+                    NSLog(@"授权成功");
+                    // 2. 获取联系人仓库
+                    CNContactStore * store = [[CNContactStore alloc] init];
+
+                    // 3. 创建联系人信息的请求对象
+                    NSArray * keys = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey];
+
+                    // 4. 根据请求Key, 创建请求对象
+                    CNContactFetchRequest * request = [[CNContactFetchRequest alloc] initWithKeysToFetch:keys];
+
+                    // 5. 发送请求
+                    [store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+
+                        // 6.1 获取姓名
+                        NSString * givenName = contact.givenName;
+                        NSString * familyName = contact.familyName;
+                        NSLog(@"%@--%@", givenName, familyName);
+
+                        // 6.2 获取电话
+                        NSArray * phoneArray = contact.phoneNumbers;
+                        for (CNLabeledValue * labelValue in phoneArray) {
+
+                            CNPhoneNumber * number = labelValue.value;
+                            NSLog(@"%@--%@", number.stringValue, labelValue.label);
+                        }
+                    }];
+                } else {
+                    NSLog(@"授权失败");
+                }
+            }];
+        }
+
+```
+
+#### 4 第三方框架 
+
+
  

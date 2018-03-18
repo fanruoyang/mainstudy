@@ -63,6 +63,7 @@
   * [7.1 终端测试命令](7-mi-ma-xue/71-zhong-duan-ce-shi-ming-ling.md)
 * [8 项目问题](quan-wen.md)
 * [9 知识点](9-zhi-shi-dian.md)
+  * [9.5 获取通讯录](9-zhi-shi-dian/95-huo-qu-tong-xun-lu.md)
 * [10 音视频](10-yin-shi-pin.md)
   * [10.1 音频](10-yin-shi-pin/101-yin-pin.md)
   * [10.2 qq音乐播放器](10-yin-shi-pin/102-qqyin-le-bo-fang-qi.md)

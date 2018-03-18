@@ -1,3 +1,4 @@
+#### 0 记得授权
 #### 1 AddressBookUI 自带UI 框架
 - 提供了联系人列表界面、联系人详情界面、添加联系人界面等
 - 一般用于选择联系人
@@ -66,5 +67,62 @@
 - 没有提供UI界面展示，需要自己搭建联系人展示界面
 - 里面的数据类型大部分基于Core Foundation框架，使用起来极其蛋疼
 
+```
+    // 1.获取授权的状态
+    ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
+    
+    // 2.判断授权状态,如果是未决定状态,才需要请求
+    if (status == kABAuthorizationStatusNotDetermined) {
+        // 2.1.创建通信录对象
+        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+        
+        // 2.2.请求授权
+        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+            if (granted) {
+                NSLog(@"授权成功");
+            } else {
+                NSLog(@"授权失败");
+            }
+        });
+    }
+    
 
+```
+- 使用方法
+
+```
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // 1.获取授权的状态
+    ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
+    
+    // 2.如果用户已经授权
+    if (status != kABAuthorizationStatusAuthorized) return;
+    
+    // 3.创建通信录对象
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    
+    // 4.从通信录对象中,将所有的联系人拷贝出来
+    CFArrayRef peopleArray = ABAddressBookCopyArrayOfAllPeople(addressBook);
+    
+    // 5.遍历所有的联系人(每一个联系人都是一条记录)
+    CFIndex peopleCount = CFArrayGetCount(peopleArray);
+    for (CFIndex i = 0; i < peopleCount; i++) {
+        
+        // 6.获取到联系人
+        ABRecordRef person = CFArrayGetValueAtIndex(peopleArray, i);
+        
+        // 7.获取姓名
+        NSString *lastname = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+        NSString *firstName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        NSLog(@"%@ %@", lastname, firstName);
+    }
+    
+    // 8.释放不再使用的对象
+    CFRelease(peopleArray);
+    CFRelease(addressBook);
+}
+
+
+```
  

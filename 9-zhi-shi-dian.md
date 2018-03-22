@@ -5,3 +5,13 @@
 #### 5 获取通讯录
 #### 6 换肤
 #### 7 传感器
+#### 8 硬件信息获取-- UIDevice--Hardware
+#### 9 重力碰撞 UIDynamic
+
+```
+    // 1.获取手机型号
+    NSLog(@"手机型号:%@", [[UIDevice currentDevice] platformString]);
+    
+    // 2.获取剩余空间和一共多少空间
+    NSLog(@"%@--%@", [[UIDevice currentDevice] freeDiskSpace], [[UIDevice currentDevice] totalDiskSpace]);
+```

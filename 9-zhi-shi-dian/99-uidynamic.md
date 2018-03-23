@@ -62,3 +62,70 @@ UIDynamicAnimator的常见属性
 //代理对象（能监听物理仿真器的仿真过程，比如开始和结束）
 @property (nonatomic, assign) id <UIDynamicAnimatorDelegate> delegate;
 ```
+
+
+#####  简单代码
+
+```
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // -1.移除仿真行为
+    [self.animator removeAllBehaviors];
+    
+    // 0.获取用户点击的点
+    CGPoint point = [[touches anyObject] locationInView:self.view];
+    
+    // 1.创建捕捉行为
+    UISnapBehavior *snap = [[UISnapBehavior alloc] initWithItem:self.redView snapToPoint:point];
+    
+    // 1.1.设置阻力系数(0~1)
+    snap.damping = 1;
+    
+    // 2.将捕捉行为添加到仿真器中(一个仿真器中只能存在一个捕捉行为)
+    [self.animator addBehavior:snap];
+}
+
+- (void)gravityAndCollision
+{
+    // 1.创建仿真行为,并且指定仿真元素
+    // 1.1.重力行为
+    UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[self.redView]];
+    
+    // 1.2.设置重力的方向(默认角度M_PI_2)
+    // gravity.angle = 0;
+    
+    // 1.3.设置重力的大小
+    // gravity.magnitude = 10.0;
+    
+    // 1.4.设置重力的向量值
+    // gravity.gravityDirection = CGVectorMake(1.0, 3.0);
+    
+    // 1.2.碰撞行为
+    UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:@[self.redView, self.blueView]];
+    // 1.2.1.设置碰撞边界
+    collision.translatesReferenceBoundsIntoBoundary = YES;
+    
+    // 1.2.2.给碰撞行为添加一个边界
+    CGPoint startPoint = CGPointMake(0, self.view.bounds.size.height * 2 / 3);
+    CGPoint endPoint = CGPointMake(self.view.bounds.size.width, self.view.bounds.size.height * 2 / 3);
+    [collision addBoundaryWithIdentifier:@"lineBoundary" fromPoint:startPoint toPoint:endPoint];
+    // [collision removeBoundaryWithIdentifier:@"lineBoundary"];
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.width)];
+    [collision addBoundaryWithIdentifier:@"bezierPath" forPath:bezierPath];
+    
+    // 2.将仿真行为添加到仿真器中
+    [self.animator addBehavior:gravity];
+    [self.animator addBehavior:collision];
+}
+
+#pragma mark - 懒加载代码
+- (UIDynamicAnimator *)animator
+{
+    if (_animator == nil) {
+        // 创建仿真器,并且指定仿真范围
+        self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    }
+    return _animator;
+}
+
+```

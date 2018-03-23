@@ -63,6 +63,7 @@
   * [7.1 终端测试命令](7-mi-ma-xue/71-zhong-duan-ce-shi-ming-ling.md)
 * [8 项目问题](quan-wen.md)
 * [9 知识点](9-zhi-shi-dian.md)
+  * [9.3 本地通知](9-zhi-shi-dian/93-ben-di-tong-zhi.md)
   * [9.5 获取通讯录](9-zhi-shi-dian/95-huo-qu-tong-xun-lu.md)
   * [9.6 换肤](9-zhi-shi-dian/96-huan-fu.md)
   * [9.7 传感器](9-zhi-shi-dian/97-chuan-gan-qi.md)

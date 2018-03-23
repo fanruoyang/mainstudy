@@ -56,13 +56,7 @@
     // 处理完成后条用 completionHandler ，用于指示在前台显示通知的形式
     completionHandler(UNNotificationPresentationOptionSound);
 }
-1
-2
-3
-4
-5
-6
-7
+
 这个方法中的那句话就是，当应用在前台的时候，收到本地通知，是用什么方式来展现。系统给了三种形式：
 
 typedef NS_OPTIONS(NSUInteger, UNNotificationPresentationOptions) {

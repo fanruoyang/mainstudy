@@ -14,6 +14,7 @@
   * [5 RAC响应式编程](di-ceng-jin-jie/5-racxiang-ying-shi-bian-cheng.md)
   * [6 block 和Delegte](di-ceng-jin-jie/6-block-he-delegte.md)
   * [7 内存分析](di-ceng-jin-jie/7-nei-cun-fen-xi.md)
+  * [8 面试问题](di-ceng-jin-jie/8-mian-shi-wen-ti.md)
 * [1 UI 基础 控件](di-yi-ge.md)
   * [1.1 九宫格 封装 懒加载 plist](di-yi-ge/di-yi-ge-0.md)
   * [1.2 Scrollview](di-yi-ge/di-er-ge.md)
@@ -75,8 +76,9 @@
     * [10.2.2 歌词的实现](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1022-ge-ci-de-shi-xian.md)
     * [10.2.3 设置锁屏界面](10-yin-shi-pin/102-qqyin-le-bo-fang-qi/1023-she-zhi-suo-ping-jie-mian.md)
   * [10.3 视频](10-yin-shi-pin/103-shi-pin.md)
-  * 10.4 直播
+  * [10.4 直播](10-yin-shi-pin/104-zhi-bo.md)
   * [10.5 二维码](10-yin-shi-pin/105-er-wei-ma.md)
+  * [10.6 即时通信](10-yin-shi-pin/106-ji-shi-tong-xin.md)
 * 11 蓝牙
 * [12 静态库 SDK](12-jing-tai-ku-sdk.md)
 

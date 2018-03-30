@@ -1,25 +1,25 @@
-##### Socket
+#### Socket
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (scrollView.contentOffset.y == 0) {
-        self.title = @"我的";
-        
-    }else {
-        self.title = nil;
-    }
-    
-    CGFloat Offset_y = scrollView.contentOffset.y;
-    
-    if (Offset_y < 0) {
-        CGFloat totalOffset = pictureHeight - Offset_y;
-        CGFloat scale = totalOffset / pictureHeight;
-        CGFloat width = Main_Width;
-        _backview.frame = CGRectMake(-(width*scale-width)/2, Offset_y, width*scale, totalOffset);
-        A=(width*scale-width)/2;
-        NSLog(@"a%f",A);
-        
-        
-    }
-}
+#####1  TCP&UDP
+- TCP（传输控制协议）
+建立连接，形成传输数据的通道
+在连接中进行大数据传输（数据不受限制）
+通过三次握手完成连接，是可靠协议，安全送达
+必须建立连接，效率会稍低
 
+- UDP（用户数据报协议）
+将数据及源和目的封装成数据包中，不需要建立连接
+每个数据报的大小限制在64K之内
+因为无需连接，因此是不可靠协议
+不需要建立连接，速度快
+
+- 1.HTTP 底层就是通过socket建立连接通信管道，实现数据传输
+- 2.HTTP是一个TCP的传输协议(方式)，它是一个可靠，安全的协议
+
+
+##### 2 实现Socket服务端监听
+
+- 使用C语言实现，
+- 使用CocoaAsyncSocket第三方框，内部是对C的封装
+- Telnet命令 telnet host port/telnet 192.168.10.10 5288
+- telnet命令是连接服务器上的某个端口对应的服务

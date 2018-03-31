@@ -79,6 +79,7 @@
   * [10.4 直播](10-yin-shi-pin/104-zhi-bo.md)
   * [10.5 二维码](10-yin-shi-pin/105-er-wei-ma.md)
   * [10.6 即时通信](10-yin-shi-pin/106-ji-shi-tong-xin.md)
+    * [10.6.1 XMPP 使用](10-yin-shi-pin/106-ji-shi-tong-xin/1061-xmpp-shi-yong.md)
 * 11 蓝牙
 * [12 静态库 SDK](12-jing-tai-ku-sdk.md)
 

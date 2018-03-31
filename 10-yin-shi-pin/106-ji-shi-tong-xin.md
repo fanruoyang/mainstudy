@@ -24,7 +24,11 @@
 - Telnet命令 telnet host port/telnet 192.168.10.10 5288
 - telnet命令是连接服务器上的某个端口对应的服务
 
-##### 3 CocoaAsyncSocket的使用
+
+##### 3 长连接和短连接的理解
+
+
+##### 4 CocoaAsyncSocket的使用
  - 服务端创建---一般后台做，
  
 ```

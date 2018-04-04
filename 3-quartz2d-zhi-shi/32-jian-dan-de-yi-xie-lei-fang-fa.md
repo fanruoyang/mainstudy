@@ -400,5 +400,29 @@
 ```
 
 
+#### 7 多张图片合并为一张图片
+
+```
+- (UIImage *)addImage:(UIImage *)image1 {
+    UIGraphicsBeginImageContext(CGSizeMake(200, 200));
+    
+    // Draw image1
+    //    [image1 drawInRect:CGRectMake(0, 0, 60, 60)];
+    
+    // Draw image2
+    [image1 drawInRect:CGRectMake(0, 0, 60, 60)];
+    
+       [[UIImage imageNamed:@"charge_bean"] drawInRect:CGRectMake(60, 0, 60, 60)];
+    
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
+}
+
+```
+
+
 
 

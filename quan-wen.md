@@ -19,15 +19,12 @@
     };
 ```
 #### 5 wkwebview goback上移64像素的问题
-- 这行要写在frame 的后面才可以
+-** 这行要写在frame 的后面才可以  ** 弄了半天，太坑了
 
 ```
        
         if (@available(iOS 11.0, *)) {
             _myWebView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            _myWebView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-            
-            _myWebView.scrollView.scrollIndicatorInsets = _myWebView.scrollView.contentInset;
 
         } else {
             self.automaticallyAdjustsScrollViewInsets = NO;

@@ -83,7 +83,7 @@ UIKeyboardAnimationCurveUserInfoKey // 键盘动画的执行节奏(快慢)
 ## KVC\KVO
 - KVC(Key Value Coding)常见作用：给模型属性赋值
 - KVO(Key Value Observing)常用作用：监听模型属性值的改变
-- KVO的使用步骤<br>
+- KVO的使用步骤
 - 功能用处
  -  1 wkwebview里面监听 title 和progress
  -  2 二维码生成
@@ -101,3 +101,10 @@ UIKeyboardAnimationCurveUserInfoKey // 键盘动画的执行节奏(快慢)
     NSLog(@"监听到%@对象的%@属性发生了改变， %@", object, keyPath, change);
 }
 ```
+
+##### KVO的底层实现：就是判断有没有调用对象的set方法
+- 1.创建NSKVONotifying，做KVO
+- 2.修改当前对象的isa指针->NSKVONotifying_NSString
+- 3.只要调用对象的set，就会调用NSKVONotifying_的set方法
+- 4.重写NSKVONotifying_的set方法，1.[super set:]2.通知观察者，告诉你属性判断
+

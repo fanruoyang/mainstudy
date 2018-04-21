@@ -35,6 +35,48 @@
 *	`代表`：ReactiveCocoa。
 
 *	`练习三`:用函数式编程实现，写一个加法计算器,并且加法计算器自带判断是否等于某个值.
+```
+
+// 把每一个操作都写成一连串的函数或者方法，使代码高度聚合，便于管理.
+// 每次都可以调用方法，因此肯定要每次都返回自己。
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // 2  * 5 == 10
+    Caculator *c = [[Caculator alloc] init];
+    
+    // 计算2  * 5 ，并且判断是否等于10
+   BOOL isqule = [[[c caculator:^(int result) {
+        result += 2;
+        result *= 5;
+        return result;
+    }] equle:^BOOL(int result) {
+        
+        return result == 10;
+        
+    }] isEqule];
+    
+    NSLog(@"%d",isqule);
+    
+}
+
+__________________________________________________
+- (Caculator *)caculator:(int(^)(int result))caculatorOperation{
+    
+    _result += caculatorOperation(_result);
+    
+    return self;
+}
+- (Caculator *)equle:(BOOL (^)(int))operation
+{
+    _isEqule = operation(_result);
+    
+    return self;
+}
+
+
+```
 
 #### 3.ReactiveCocoa编程思想
 ReactiveCocoa结合了几种编程风格：

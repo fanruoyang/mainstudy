@@ -5,7 +5,7 @@
 - 4.重写NSKVONotifying_的set方法，1.[super set:]2.通知观察者，告诉你属性判断
 - 5.合理运用runtime
 
-#### 自定义实现KVO底层实现
+####  1 自定义实现KVO底层实现
 
 ```
 -(void)fry_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context{
@@ -27,9 +27,6 @@
     
 }
 
-
-
-
 #import "FYRGKVONotifying_Person.h"
 #import <objc/runtime.h>
 
@@ -46,3 +43,32 @@
 }
 
 ```
+
+#### 2 OC关联对象小结---详细描述上面
+- 为KVO创建一个关联的观察者
+
+```
+void objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);
+id objc_getAssociatedObject(id object, const void *key);
+void objc_removeAssociatedObjects(id object);
+
+```
+**objc_setAssociatedObject**用于给对象添加关联对象，传nil可以移除相关的关联对象。
+**objc_getAssocicatedObject**用于获取关联对象的值。
+**objc_removeAssociatedObjec**t用于移除该对象的所有关联对象。如果打算只移除一部分则不能使用该方法。
+
+- 相关参数
+key：要保证全局唯一，key与关联的对象是一一对应关系。必须全局唯一。通常用@selector(methodName)作为key。
+value：要关联的对象。
+policy：关联策略。有五种关联策略。
+
+**OBJC_ASSOCIATION_ASSIGN** 等价于 @property(assign)。
+**OBJC_ASSOCIATION_RETAIN_NONATOMIC**等价于 @property(strong, nonatomic)。
+**OBJC_ASSOCIATION_COPY_NONATOMIC**等价于@property(copy, nonatomic)。
+**OBJC_ASSOCIATION_RETAIN**等价于@property(strong,atomic)。
+**OBJC_ASSOCIATION_COPY**等价于@property(copy, atomic)。
+
+#### 3 原理简介
+
+运行时通过map维系一张关联对象与被关联对象之间的关系。
+objc_setAssociatedObject的相关代码.

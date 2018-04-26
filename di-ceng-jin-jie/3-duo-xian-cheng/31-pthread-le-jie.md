@@ -462,3 +462,22 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
     // 等前面的异步操作都执行完毕后，回到主线程...
 });
 ```
+
+##### 6 执行一个网络请求block 的参数后，在刷新UI
+- 这里需要手动管理group
+```
+    dispatch_queue_t queue = dispatch_queue_create("BIn.create", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_group_t group = dispatch_group_create();
+    
+        dispatch_group_enter(group);
+        dispatch_async(queue, ^{
+            [self getCashDataForNetwork:^{
+                 dispatch_group_leave(group);
+            }];
+        });
+ 
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    
+        });
+```

@@ -31,3 +31,9 @@
         }
         
 ```
+##### 6 Label的宽度自适应,用label 的优先级,俩个Lable的话
+
+```
+        [label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [label setContentCompressionResistancePriority: UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+```

@@ -51,7 +51,8 @@ position和anchorPoint@property CGPoint position;用来设置CALayer在父层
     
     // 如何判断以后是否需要裁剪图片，就判断下需要显示图层的控件是否是正方形。
 }
-```ß
+```
+
 #### 3.图片View 缩放
 ```
     // 图层形变

@@ -124,7 +124,7 @@ NSUInteger col = index % cols;
      @end
     ```
 - 8.解析数据注意问题
-  - instancetype在类型表示上，跟id一样，可以表示任何对象类型
+  - instancetype在类型表示上，跟id一样，可以表示任何对象类型，进行对象操作
 
   - instancetype只能用在返回值类型上，不能像id一样用在参数类型上
 

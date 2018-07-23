@@ -65,6 +65,7 @@
     * [4.7 ScrollView 的使用场景 ](47-scrollview-de-shi-yong-chang-jing.md)
 * [4.SVN GIT](4svn-git.md)
 * [5 swift](5-swift.md)
+  * [5.1 语法注意点一](5-swift/51-yu-fa-zhu-yi-dian-yi.md)
 * [6 内购](6-nei-gou.md)
 * [7 密码学](7-mi-ma-xue.md)
   * [7.1 终端测试命令](7-mi-ma-xue/71-zhong-duan-ce-shi-ming-ling.md)
@@ -86,6 +87,6 @@
   * [10.5 二维码](10-yin-shi-pin/105-er-wei-ma.md)
   * [10.6 即时通信](10-yin-shi-pin/106-ji-shi-tong-xin.md)
     * [10.6.1 XMPP 使用](10-yin-shi-pin/106-ji-shi-tong-xin/1061-xmpp-shi-yong.md)
-* 11 蓝牙
+* [11 蓝牙](11-lan-ya.md)
 * [12 静态库 SDK](12-jing-tai-ku-sdk.md)
 

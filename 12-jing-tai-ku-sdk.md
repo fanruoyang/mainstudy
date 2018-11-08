@@ -2,6 +2,7 @@
 
 - 静态库: .a和. framework
 - 动态库: .dylib 和.framework
+- 编译 comment +B
 
 ##### 2动态库和静态库的区别
 
@@ -11,10 +12,15 @@
 **注意:项目中如果使用了自制的动态库，不能被上传到AppStore**
 
 ##### 3 开发.a
--  Cocoa Touch Static Library 
+-  选择 Cocoa Touch Static Library 建立
 -  在Build Phases 中将.h文件暴露出来
+![](/assets/DDB61CED-E789-4283-BBE4-4F8A199DAC1A.png)
+
 -  运行编译后就能得到对应的.a静态库
 -  编译静态库后，使用不同的机型是报错，因为CPU架构不同，合并
+#####这里变成NO的话是编译全部的静态库
+![](/assets/41348F9C-3BB4-467B-97F4-AF944D3AF77C.png)
+
 ```
 /*
  每一个设备都有属于自己的CPU架构(4s/6plus)
@@ -64,14 +70,23 @@ $ lipo -info libCZTools.a
 -  合并.a的好处，开发过程中既可以在真机上调试，也可以在模拟器上调试
 -  合并.a的坏处，如果静态库太大，合并打包后，会非常大，因此很多第三方的静态库的.a是区分版本的
 - 今后在使用.a时一定注意版本
+- 给别人的静态库是release的版本
 
 
 ##### 5 framework的使用，编译
 
 - 1 直接在Generl中 添加，然后进行编译
-- 2 编译的时候记住realse版本，然后合并
+![](/assets/964CBF9A-4C6C-4778-B22F-B94646B1465C.png)
+1.1或者在新项目中直接建立。在拉入。无法实际测试
+![](/assets/FFEEA448-F2BE-491C-A3AE-0AE1E00D3452.png)
+**- 2 编译的时候记住realse版本，然后合并**
 - 3 building setting 中build Active 中变为NO，适应版本
 - 4 注意是静态库还是动态库，动态库使用在Generl embeded中添加、无法上架
-- 5 编译为静态库的，需要在building setting中Mach 中修改为Static Library
+- 5 **编译为静态库的，需要在building setting中Mach 中修改为Static Library**
+![**](/assets/390C8635-9CD9-4995-8EE1-104199CDADBD.pn**g)
+
+##### 6 MRC的文件打包静态库可以在ARC环境下使用，现在几乎没用了
+
+##### 7 swift 打包动态库 不支持静态库  cocopods中的use_frameworks!
 
 

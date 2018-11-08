@@ -92,4 +92,6 @@
     * [10.6.1 XMPP 使用](10-yin-shi-pin/106-ji-shi-tong-xin/1061-xmpp-shi-yong.md)
 * [11 蓝牙](11-lan-ya.md)
 * [12 静态库 SDK](12-jing-tai-ku-sdk.md)
+* [13 正则表达式](13-zheng-ze-biao-da-shi.md)
+* [14 组件化](14-zu-jian-hua.md)
 

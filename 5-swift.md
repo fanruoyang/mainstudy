@@ -8,4 +8,4 @@
   oc [UIcorlor redcolor] , swift UIcolor.redcolor
 
  
-- swift 里面没有分好 
+- swift 里面没有分号 

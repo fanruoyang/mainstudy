@@ -88,5 +88,8 @@ $ lipo -info libCZTools.a
 ##### 6 MRC的文件打包静态库可以在ARC环境下使用，现在几乎没用了
 
 ##### 7 swift 打包动态库 不支持静态库  cocopods中的use_frameworks!
+- 1  swift 的代码需要添加公共方法 public
+![](/assets/9429C6D6-7B00-45F5-9110-71F7BC6AB532.png)
+
 
 

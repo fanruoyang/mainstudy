@@ -90,6 +90,7 @@ $ lipo -info libCZTools.a
 ##### 7 swift 打包动态库 不支持静态库  cocopods中的use_frameworks!
 - 1  swift 的代码需要添加公共方法 public
 ![](/assets/9429C6D6-7B00-45F5-9110-71F7BC6AB532.png)
+- 2 其他都一样跟OC 
 
 
 

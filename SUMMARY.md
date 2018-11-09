@@ -93,5 +93,6 @@
 * [11 蓝牙](11-lan-ya.md)
 * [12 静态库 SDK](12-jing-tai-ku-sdk.md)
 * [13 正则表达式](13-zheng-ze-biao-da-shi.md)
-* [14 组件化](14-zu-jian-hua.md)
+* [14 ipad开发](14-ipadkai-fa.md)
+* [15 组件化](14-zu-jian-hua.md)
 

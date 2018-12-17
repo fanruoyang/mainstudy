@@ -97,4 +97,7 @@
 * [14 ipad开发](14-ipadkai-fa.md)
 * [15 组件化](14-zu-jian-hua.md)
 * [16 数据库](16-shu-ju-ku.md)
+* [17 ARKit](17-arkit.md)
+* [18 公开课技术点](18-gong-kai-ke-ji-zhu-dian.md)
+  * [1 应用重签名](18-gong-kai-ke-ji-zhu-dian/1-ying-yong-zhong-qian-ming.md)
 

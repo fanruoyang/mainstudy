@@ -100,4 +100,5 @@
 * [17 ARKit](17-arkit.md)
 * [18 公开课技术点](18-gong-kai-ke-ji-zhu-dian.md)
   * [1 应用重签名](18-gong-kai-ke-ji-zhu-dian/1-ying-yong-zhong-qian-ming.md)
+  * [2 循环引用](18-gong-kai-ke-ji-zhu-dian/2-xun-huan-yin-yong.md)
 

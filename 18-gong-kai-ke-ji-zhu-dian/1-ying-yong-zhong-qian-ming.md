@@ -13,7 +13,9 @@
      codesign -fs"iPhone Developer: 990219310@qq.com (8Q3TP2Z4G5)" QBar.framework 
      3 注意搜索一个项目名称，需要变黑 变成可执行文件
      4 新建添加描述文件  真机运行 
+ ![](/assets/拿到描述文件.png)
      5 将真机的描述文件放到越狱的文件夹里面，找到plist 文件修改bund id
+ ![](/assets/修改ID.png)
      6 security cms -D -i embedded.mobileprovision 打开描述文件获取信息
      7 get-task-allow 为true 的时候可以调试
      8 Entitlements 的值需要拷贝出来新建plist 文件 签名要用

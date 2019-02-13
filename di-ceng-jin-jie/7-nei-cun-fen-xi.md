@@ -3,7 +3,8 @@
    - 不运行程序，直接对代码进行分析，但是没有真正分配内存，只能根据代码的上下文的语法结构是否有内存泄漏
    - 缺点，不一定准确，但是如果有提示，需要结合上下文去查看代码
    - 使用 Product--->Analyze--->蓝色警告leak
-   - ARC模式下 CoreFoundation 框架下容易内存泄漏，绘图时候，需要自己使用CFRelease
+   
+   **ARC模式下 CoreFoundation 框架下容易内存泄漏，绘图时候，需要自己使用CFRelease  手动**
    
 - 2 动态内存分析
 
@@ -31,3 +32,16 @@
 
 #### 3 循环引用
 不走dealloc查看循环引用
+
+腾讯 MleaksFinder 
+#### 4 野指针 EXC_BAD_ACCESS   空指针
+打印bug
+![](/assets/野指针.png)
+
+#### 5 问题
+-  1 NStimer 
+![](/assets/nstimer 循环.png)
+
+
+
+

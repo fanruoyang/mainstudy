@@ -83,7 +83,7 @@ $ lipo -info libCZTools.a
 - 3 building setting 中build Active 中变为NO，适应版本
 - 4 注意是静态库还是动态库，动态库使用在Generl embeded中添加、无法上架
 - 5 **编译为静态库的，需要在building setting中Mach 中修改为Static Library**
-![**](/assets/390C8635-9CD9-4995-8EE1-104199CDADBD.pn**g)
+![**](/assets/390C8635-9CD9-4995-8EE1-104199CDADBD.png)
 
 ##### 6 MRC的文件打包静态库可以在ARC环境下使用，现在几乎没用了
 

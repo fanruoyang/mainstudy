@@ -104,4 +104,5 @@
   * [1 应用重签名](18-gong-kai-ke-ji-zhu-dian/1-ying-yong-zhong-qian-ming.md)
   * [2 性能优化-循环引用](3-xing-neng-you-hua.md)
   * [3 消息转发机制](18-gong-kai-ke-ji-zhu-dian/3-xiao-xi-zhuan-fa-ji-zhi.md)
+* [19  一键打包](19-yi-jian-da-bao.md)
 
